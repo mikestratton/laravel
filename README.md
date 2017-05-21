@@ -5,11 +5,11 @@
 ### M Model  
 ### V VIEW  
 ### C Controller  
-
-### Model Deals with the database.  
+  
+Model Deals with the database.  
 VIEW: Deals with HTML   
 Controller: Deals with the VIEW and Model. PHP/laravel is the controller.  
-
+  
 ### Main folders in Laravel:  
 app  
 app/Http (main folder, contains routes)  
