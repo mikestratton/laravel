@@ -50,7 +50,7 @@ Route::get('/', function () {
 });   
 #### Example 2  
 Route::get('/about', function () {  
-    return "about page goes here";  // returns text
+    return "about page goes here";  // returns text  
 });  
 
    
