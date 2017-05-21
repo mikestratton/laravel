@@ -42,7 +42,6 @@ package.json (required dependencies)
 User friendly applications are dependent on use of routes. Routes are in the URL address bar. For example: mydomain.com/contact is related to routes.  
   
 Laravel 5.2 Docs, Routes Page: https://laravel.com/docs/5.2/routing   
-  
 ### Routes Examples  
 #### Example 1
 Route::get('/', function () {  
@@ -53,10 +52,9 @@ Route::get('/about', function () {
     return "about page goes here";            // returns text  
 });  
 #### Example 3  
-Route::get('/post/{id}', function ($id) {     // myapp.com/laravel/post/12345 returns: ID Number: 12345
+Route::get('/post/{id}', function ($id) {     // myapp.com/laravel/post/12345 returns: ID Number: 12345   
     return "ID Number: " . $id;  
-});   
-  
+});    
 ### Naming Routes  
 #### Example 1  
 Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {  
@@ -66,7 +64,7 @@ Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {
 #### Example 2  
 From within bash, cd to root folder and then type(without quotes):  
 "php artisan route:list"  
-
+  
     
    
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
