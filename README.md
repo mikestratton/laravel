@@ -2,9 +2,7 @@
 
 ## Laravel is a PHP Framework that uses MVC architecture.  
   
-### Model  
-### VIEW  
-### Controller  
+### Model View Controller  
   
 Model Database  
 VIEW: User Interface (HTML)   
