@@ -1,0 +1,209 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 180px; /* Margin bottom by footer height */
+  font-family: 'Fira Sans', sans-serif;
+}
+
+
+/**************
+COLORS: 
+green: #66cc33 
+pink: #ff7bac #ffcccc 
+yellow: #ffffcc
+***************/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 70px;
+  background-color: #ffc;
+
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.jumbotron h1 {
+    text-shadow: 4px 4px 4px #d4d4d4;
+    font-weight: 200;
+    font-size: 36px;
+    padding-right: 10%;
+    padding-left: 10%;
+    line-height:45px;
+    
+}
+
+jumbotron img {
+    margin: 40px 20px;
+}
+
+
+/**********************************
+Responsive navbar-brand image CSS
+- Remove navbar-brand padding for firefox bug workaround
+- add 100% height and width auto ... similar to how bootstrap img-responsive class works
+***********************************/
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    padding: 15px;
+    width: auto;
+}
+
+.navbar-inverse {
+    background: none;
+    border: none;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border: none;
+}
+
+.navbar-nav>.active>a {
+    color: #000;
+    background-color:#ffcccc;
+    border: thin solid #ffcccc;
+}
+
+
+
+.navbar-nav>li>a {
+    color: #000;
+    background-color:#ffffcc;
+    border: thin solid #ffffcc;
+}
+
+.navbar-nav>li>a:hover {
+    color: #fff;
+    background-color:#66cc33;
+    border: thin solid #66cc33;
+}
+
+.navbar-nav>li>a:focus{
+        color: #000;
+    background-color:#ffcccc;
+    border: thin solid #ffcccc;
+}
+
+
+/* LOGO
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.logo .navbar-brand {
+    height: 90px;
+    margin: 20px 0;
+}
+
+.logo .nav>li>a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 43px 2px;
+    border-radius: 7px;
+}
+
+.logo .navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+    background-color: #ffffcc;
+    border: thin #66cc33 solid;
+}
+.navbar-toggle .icon-bar {
+    border: thin #66cc33 solid;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #ffcccc;
+    border-color: #ffcccc;
+}
+
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+
+.navbar-alignit .navbar-header {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    height: 50px;
+}
+
+.navbar-alignit .navbar-brand {
+    top: 50%;
+    display: block;
+    position: relative;
+    height: auto;
+    transform: translate(0, -50%);
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    z-index: 9999;
+}
+
+
+/* Miscellaneous stylling options */
+
+.align-ctr {
+    text-align: center;
+}
+
+.align-lft {
+    text-align: left;
+    padding-left:20px;
+}
+
+.inline {  
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.footer p {
+    line-height:70px;
+    height:70px;
+    font-size:11px;
+    padding: 0;
+    margin:0;
+    color: #66cc33;
+}
+
+.footer img {
+    height: 100%;
+    padding: 12px;
+    width: auto;
+    float:right;
+}
+
+.mar-horiz {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.mar-ico{
+    margin: 12px 20px 12px -20px;
+    padding: 3px 0px 6px 0px;  
+}
+
+.hlt{
+    background-color:#ffffcc;
+    border-radius:7px;
+    text-shadow:none;   
+}
+
+.trm {
+    vertical-align: super;
+    font-size: 50%;
+}

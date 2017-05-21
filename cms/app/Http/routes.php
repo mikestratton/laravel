@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome'); // points to resources/views/welcome.blade.php
-});
+//Route::get('/', function () {
+//    return view('index'); // points to resources/views/welcome.blade.php
+//});
 
 Route::get('/post/{id}/{name}', function ($id, $name) { // id posts and catches variable
     return "This is post id number " . $id . " with the name " . $name;
@@ -36,6 +36,21 @@ Route::get('/solutions', function () {
 Route::get('/contact', function () {
     return "contact page goes here";
 });
+
+/*
+|------------------------------------
+| Serve html files
+|------------------------------------
+*/
+
+
+View::addExtension('html', 'php');
+
+Route::get('/', function() {
+    return File::get(public_path() . '/index.html');
+});
+
+
 /*
 |------------------------------------
 | Application Routes
