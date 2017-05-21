@@ -46,14 +46,27 @@ Laravel 5.2 Docs, Routes Page: https://laravel.com/docs/5.2/routing
 ### Routes Examples  
 #### Example 1
 Route::get('/', function () {  
-    return view('welcome'); // points to resources/views/welcome.blade.php  
+    return view('welcome');                   // points to resources/views/welcome.blade.php  
 });   
 #### Example 2  
 Route::get('/about', function () {  
-    return "about page goes here";  // returns text  
+    return "about page goes here";            // returns text  
 });  
+#### Example 3  
+Route::get('/post/{id}', function ($id) {     // myapp.com/laravel/post/12345 returns: ID Number: 12345
+    return "ID Number: " . $id;  
+});   
+  
+### Naming Routes  
+#### Example 1  
+Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {  
+    $url = route('admin.home');  
+    return "this url is " . $url; 
+}));  
+#### Example 2  
+From within bash, cd to root folder and then type(without quotes):  
+"php artisan route:list"  
 
-   
-   
+    
    
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
