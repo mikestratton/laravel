@@ -2,13 +2,13 @@
 
 ## Laravel is a PHP Framework that uses MVC architecture.  
   
-### M Model  
-### V VIEW  
-### C Controller  
+### Model  
+### VIEW  
+### Controller  
   
-Model Deals with the database.  
-VIEW: Deals with HTML   
-Controller: Deals with the VIEW and Model. PHP/laravel is the controller.  
+Model Database  
+VIEW: User Interface (HTML)   
+Controller: PHP/Laravel  
   
 ### Main folders in Laravel:  
 app  
@@ -42,6 +42,7 @@ package.json (required dependencies)
 User friendly applications are dependent on use of routes. Routes are in the URL address bar. For example: mydomain.com/contact is related to routes.  
   
 Laravel 5.2 Docs, Routes Page: https://laravel.com/docs/5.2/routing   
+  
 ### Routes Examples  
 #### Example 1
 Route::get('/', function () {  
@@ -55,6 +56,7 @@ Route::get('/about', function () {
 Route::get('/post/{id}', function ($id) {     // myapp.com/laravel/post/12345 returns: ID Number: 12345   
     return "ID Number: " . $id;  
 });    
+  
 ### Naming Routes  
 #### Example 1  
 Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {  
