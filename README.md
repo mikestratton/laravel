@@ -64,7 +64,23 @@ Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {
 #### Example 2  
 From within bash, cd to root folder and then type(without quotes):  
 "php artisan route:list"  
+   
+## Controllers  
+Classes transfer data from Model(database) to the View(UI) as well as transfer data from View to the Model.(i.e. user logs in to site via login page and retrieve their posts, or vistior fills out form and clicks submit).  
   
-    
+### Creating Controllers  
+Controllers are located in the larvel directory: /app/Http/Controllers  
+The Controller.php file located in /app/Http/Controllers/ is the main controller.
+
+#### Keywords
+'namespace' does for functions in classes in the same manor that scope does for variables.   
+For more information PHP namespaces, check out this tutorial: https://code.tutsplus.com/tutorials/namespacing-in-php--net-27203 
+For more information on PHP variables and scopes, take a look at the directory: /docs/php   
+'use' imports a specific glass or namespace into the file that it is used in.    
+For more information on aliasing/importing with 'use' go to http://uk3.php.net/manual/en/language.namespaces.importing.php  
+
+#### Using Artisan to Create a Controller    
+In bash, cd to directory of laravel and type(without quotes): "php artisan make:controller YourControllerName"    
+To create a CRUD contoller, type(without quotes): "php artisan make:controller --resource YourControllerName"  
    
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
