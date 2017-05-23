@@ -111,7 +111,7 @@ Using the get function, as in: Route::get('/posts', 'PostControllers.php@index')
 The resource function offers full CRUD functionality, and all methods of the controller is passed to the route.  
 After creating a Route::resource in your routes file, go to a terminal and type in: "php artisan route:list"  
 This will return your routes, including the Route::resource that validates your route has full CRUD functionality.  
-![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/artisan_route-listPNG.PNG)  
+![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/bash_route_list.PNG)  
 
 
     
