@@ -80,8 +80,23 @@ For more information on PHP variables and scopes, take a look at the directory: 
 For more information on aliasing/importing with 'use' go to http://uk3.php.net/manual/en/language.namespaces.importing.php   
 
 #### Using Artisan to Create a Controller    
-In bash, cd to directory of laravel and type(without quotes): "php artisan make:controller YourControllerName"    
+In a terminal, cd to directory of laravel and type(without quotes): "php artisan make:controller YourControllerName"    
 To create a CRUD contoller, type(without quotes): "php artisan make:controller --resource YourControllerName"  
+To find other commands in artsian, from the terminal, type: "php artisan"  
+  
+### Routing Controllers
+The following code will route a get request(localhost/post) to a function(@index) within a controller(PostController.php)  
+Route::get('/post', 'PostsController@index');  
+
+### Pass Parameters to a Controller  
+Example:  
+In routes file, add this line:   
+Route::get('/post/{id}', 'PostsController@index');  
+In your controller, add this function:  
+public function index($id)  
+    {  
+        return "I am passing a variable with the number: " . $id;  
+    }  
    
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
