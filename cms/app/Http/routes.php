@@ -15,7 +15,7 @@
 //    return view('index'); // points to resources/views/welcome.blade.php
 //});
 
-Route::get('/post/{id}/{name}', function ($id, $name) { // id posts and catches variable
+/*Route::get('/post/{id}/{name}', function ($id, $name) { // id posts and catches variable
     return "This is post id number " . $id . " with the name " . $name;
 });
 
@@ -44,12 +44,16 @@ Route::get('/contact', function () {
 */
 
 
-View::addExtension('html', 'php');
+/*View::addExtension('html', 'php');
 
 Route::get('/', function() {
     return File::get(public_path() . '/index.html');
-});
+});*/
 
+
+//Route::get('/post/{id}', 'PostsController@index');
+
+Route::resource('posts', 'PostsController');
 
 /*
 |------------------------------------
