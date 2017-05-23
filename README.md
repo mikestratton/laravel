@@ -83,6 +83,11 @@ For more information on aliasing/importing with 'use' go to http://uk3.php.net/m
 In a terminal, cd to directory of laravel and type(without quotes): "php artisan make:controller YourControllerName"    
 To create a CRUD contoller, type(without quotes): "php artisan make:controller --resource YourControllerName"  
 To find other commands in artsian, from the terminal, type: "php artisan"  
+
+
+
+
+
   
 ### Routing Controllers
 The following code will route a get request(localhost/post) to a function(@index) within a controller(PostController.php)  
@@ -98,5 +103,25 @@ public function index($id)
         return "I am passing a variable with the number: " . $id;  
     }  
    
+### Resources and Controllers   
+The 'resource' method creates special routes that can be used in the controller.
+Using the method 'resource'  
+In your routes file, type: Route::resource('posts', 'PostsController');  
+Using the get function, as in: Route::get('/posts', 'PostControllers.php@index'); needs to call a specific method.   
+The resource function offers full CRUD functionality, and all methods of the controller is passed to the route.  
+After creating a Route::resource in your routes file, go to a terminal and type in: "php artisan route:list"  
+This will return your routes, including the Route::resource that validates your route has full CRUD functionality.  
++--------+-----------+------------------------+---------------+----------------------------------------------+------------+  
+| Domain | Method    | URI                    | Name          | Action                                       | Middleware |  
++--------+-----------+------------------------+---------------+----------------------------------------------+------------+   
+|        | GET|HEAD  | posts                  | posts.index   | App\Http\Controllers\PostsController@index   | web        |  
+|        | POST      | posts                  | posts.store   | App\Http\Controllers\PostsController@store   | web        |  
+|        | GET|HEAD  | posts/create           | posts.create  | App\Http\Controllers\PostsController@create  | web        |  
+|        | GET|HEAD  | posts/{posts}          | posts.show    | App\Http\Controllers\PostsController@show    | web        |  
+|        | PUT|PATCH | posts/{posts}          | posts.update  | App\Http\Controllers\PostsController@update  | web        |  
+|        | DELETE    | posts/{posts}          | posts.destroy | App\Http\Controllers\PostsController@destroy | web        |  
+|        | GET|HEAD  | posts/{posts}/edit     | posts.edit    | App\Http\Controllers\PostsController@edit    | web        |  
++--------+-----------+------------------------+---------------+----------------------------------------------+------------+  
+
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
