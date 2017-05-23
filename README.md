@@ -111,17 +111,8 @@ Using the get function, as in: Route::get('/posts', 'PostControllers.php@index')
 The resource function offers full CRUD functionality, and all methods of the controller is passed to the route.  
 After creating a Route::resource in your routes file, go to a terminal and type in: "php artisan route:list"  
 This will return your routes, including the Route::resource that validates your route has full CRUD functionality.  
-+--------+-----------+------------------------+---------------+----------------------------------------------+------------+  
-| Domain | Method    | URI                    | Name          | Action                                       | Middleware |  
-+--------+-----------+------------------------+---------------+----------------------------------------------+------------+   
-|        | GET|HEAD  | posts                  | posts.index   | App\Http\Controllers\PostsController@index   | web        |  
-|        | POST      | posts                  | posts.store   | App\Http\Controllers\PostsController@store   | web        |  
-|        | GET|HEAD  | posts/create           | posts.create  | App\Http\Controllers\PostsController@create  | web        |  
-|        | GET|HEAD  | posts/{posts}          | posts.show    | App\Http\Controllers\PostsController@show    | web        |  
-|        | PUT|PATCH | posts/{posts}          | posts.update  | App\Http\Controllers\PostsController@update  | web        |  
-|        | DELETE    | posts/{posts}          | posts.destroy | App\Http\Controllers\PostsController@destroy | web        |  
-|        | GET|HEAD  | posts/{posts}/edit     | posts.edit    | App\Http\Controllers\PostsController@edit    | web        |  
-+--------+-----------+------------------------+---------------+----------------------------------------------+------------+  
+![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/artisan_route-listPNG.PNG)  
+
 
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
