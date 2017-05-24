@@ -8,6 +8,7 @@ composer.phar
 .DS_Store  
   
 /.idea  
+/.idea/*  
 /_ide_helper.php  
 
 /app/config/packages  
