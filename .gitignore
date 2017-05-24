@@ -1,3 +1,18 @@
+/build/logs  
+/build/coverage  
+  
+/app/tests/_log  
+  
+composer.phar  
+  
+.DS_Store  
+  
+/.idea  
+/_ide_helper.php  
+
+/app/config/packages  
+/public/packages  
+  
 # Laravel Template created by github.com
 vendor/
 node_modules/
