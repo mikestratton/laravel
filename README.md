@@ -84,11 +84,6 @@ In a terminal, cd to directory of laravel and type(without quotes): "php artisan
 To create a CRUD contoller, type(without quotes): "php artisan make:controller --resource YourControllerName"  
 To find other commands in artsian, from the terminal, type: "php artisan"  
 
-
-
-
-
-  
 ### Routing Controllers
 The following code will route a get request(localhost/post) to a function(@index) within a controller(PostController.php)  
 Route::get('/post', 'PostsController@index');  
@@ -112,7 +107,22 @@ The resource function offers full CRUD functionality, and all methods of the con
 After creating a Route::resource in your routes file, go to a terminal and type in: "php artisan route:list"  
 This will return your routes, including the Route::resource that validates your route has full CRUD functionality.  
 ![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/bash_route_list.PNG)  
-
-
+  
+## Views  
+Views are located in the directory resources/views/
+  
+### Create a Custom View  
+1. add a method to your controller file  
+2. in your views folder add a php file with the name yourfile.blade.php  
+3. in your routes file, add a route that points to the method in your controller file   
+  
+#### Example Creation of a Custom View
+1. In your controller file, add the following method:  
+public function contact_view(){  
+        return view('contact');  
+    }  
+2.  In your views folder, create a .php file and name it contact.blade.php  
+3. In your routes.php file, add the following code:  
+Route::get('/contact', 'PostsController@contact');  
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
