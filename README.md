@@ -5,7 +5,7 @@
 ### Model View Controller  
   
 Model Database  
-VIEW: User Interface (HTML)   
+View: User Interface (HTML)   
 Controller: PHP/Laravel  
   
 ### Main folders in Laravel:  
@@ -124,5 +124,15 @@ public function contact_view(){
 2.  In your views folder, create a .php file and name it contact.blade.php  
 3. In your routes.php file, add the following code:  
 Route::get('/contact', 'PostsController@contact');  
+
+## Blade
+Blade is a simple and powerful templating system for laravel.  
+Example:  
+To echo the variable $myvar, you would use: {{$myvar)   
+
+### Blade Master Template  
+Default file name: views/layout/app.blade.php
+  
+Learn more about laravel blade engine: https://laravel.com/docs/5.2/blade  
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
