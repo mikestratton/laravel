@@ -11,10 +11,28 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index'); // points to resources/views/welcome.blade.php
-});
+});*/
 
+Route::get('/', 'PostsController@home');
+
+Route::get('/about', 'PostsController@about');
+
+Route::get('/solutions', 'PostsController@solutions');
+
+Route::get('/contact', 'PostsController@contact');
+
+Route::get('/welcome', 'PostsController@welcome'); //default laravel
+
+Route::get('/{id}/{name}/{password}', 'PostsController@show_post');
+
+Route::get('/sample', 'PostsController@sample');
+
+
+
+
+/*
 Route::get('/post/{id}/{name}', function ($id, $name) { // id posts and catches variable
     return "This is post id number " . $id . " with the name " . $name;
 });
@@ -25,35 +43,10 @@ Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {
     return "this url is " . $url;
 }));
 
-Route::get('/about', function () {
-    return "about page goes here";
-});
-
-Route::get('/solutions', function () {
-    return "solutions page goes here";
-});
-
-Route::get('/contact', function () {
-    return "contact page goes here";
-});
-
-/*
-|------------------------------------
-| Serve html files
-|------------------------------------
-*/
 
 
-View::addExtension('html', 'php');
+Route::resource('posts', 'PostsController');*/
 
-Route::get('/', function() {
-    return File::get(public_path() . '/index.html');
-});
-
-
-
-
-Route::resource('posts', 'PostsController');
 
 /*
 |------------------------------------

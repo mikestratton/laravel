@@ -83,4 +83,35 @@ class PostsController extends Controller
     {
         //
     }
+
+    public function home(){
+        return view('index');
+    }
+
+    public function about(){
+        return view('about');
+    }
+
+    public function solutions(){
+        return view('solutions');
+    }
+
+    public function contact(){
+        return view('contact');
+    }
+
+    public function welcome(){
+        return view('welcome');
+    }
+
+    public function show_post($id, $name, $password){
+        return view('post', compact('id', 'name','password'));
+    }
+
+    public function sample(){
+        $people = ['Mike', 'Tina', 'Buster', 'Rocky', 'Shrek', 'Dusty'];
+        return view('sample', compact('people'));
+    }
+
+
 }
