@@ -134,5 +134,18 @@ To echo the variable $myvar, you would use: {{$myvar)
 Default file name: views/layout/app.blade.php
   
 Learn more about laravel blade engine: https://laravel.com/docs/5.2/blade  
+
+## Laravel Migrations  
+"Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema."  
+
+### Default Migrations  
+Upon installation, Laravel creates two migrations, located in the database/migrations folder. The migrations are php classes the create user tables and create password resets table. The functions contained in these classes are extensively powerful, allowing for the creation or deletion(drop) of a table.
+
+### Generating Migrations  
+To create a migration, using the migrations located in the database/migrations folder, use the Artisan command:  
+php artisan migrate  
+
+Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations    
+    
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
