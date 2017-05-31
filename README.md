@@ -184,6 +184,8 @@ https://laravel.com/docs/5.2/migrations#creating-indexes
 php artisan migrate:reset //deletes(rolls back) all migrations  
 php artisan migreate:refresh  //rolls back and re-runs all migrations. WARNING: This command will delete all data.  
 php artisan migrate:status  //shows what migratiosn have ran  
+
+Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations      
   
 ## Laravel Fundamentals: Raw SQL Queries  
 Documentation: https://laravel.com/docs/5.2/database  
@@ -211,10 +213,35 @@ Route::get('/delete', function(){
    return $deleted;  
 });  
 
+## Laravel Fundamentals: Database, Eloquent/ORM
+Documentation: https://laravel.com/docs/5.2/eloquent  
+"The Eloquent ORM included with Laravel provides a beautiful, simple ActiveRecord implementation for working with your database. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table." ~ laravel.com  
+### Eloquent, Reading Data  
+#### Create a Model  
+php artisan make:model Post -m //note up use of Camel(aka pascal) case in naming scheme. -m (creates migration)
+The above model will also create a migration that will be named posts. Models call to lowercase, plural database tables.  
+Examples:  
+Model 'Post' == Table 'posts'  
+Model 'User' == Table 'users'  
+Model 'Article' == Table 'articles'  
+Model 'Page' == Table 'pages'  
+  
+If creating a PostAdmin model for the posts table, Laravel would read the PostAdmin model as being tied to the postadmins table. To resolve this, the following code should be used:  
+class PostAdmin extends Model
+{
+    protected $table = 'posts';
+}  
+Also, by default, a newly created model believes that the attached table has a primary key of 'id'.  
+If your primary key is not named 'id', be sure to use a protected view.  
+class PostAdmin extends Model
+{
+    protected $primaryKey = 'admin_post_id';  
+}   
+  
 
 
 
-Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations    
+
     
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
