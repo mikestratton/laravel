@@ -143,7 +143,51 @@ Upon installation, Laravel creates two migrations, located in the database/migra
 
 ### Generating Migrations  
 To create a migration, using the migrations located in the database/migrations folder, use the Artisan command:  
+php artisan migrate 
+
+### Make a Migration  
+To make a migration, type in the command:   
+php artisan make:migration create_posts_table --create="posts"   
+Naming scheme for the database table should be lowercase with underscores used as spaces to separate words. 
+my_database_name  
+After using the php artisan make:migration command, you should see a new php file in the migrations folder named: yyyy_mm_dd_tttttt_create_posts_table.php   
+Now, use the migrate command to create the table in your database:  
 php artisan migrate  
+Your terminal should return:  
+Migrated: 2017_05_31_011148_create_posts_table  
+This can be validated in phpMyAdmin  
+To delete the last migration that was created, from your command line type:  
+php artisan migration:rollback  
+  
+### Adding Columns to Existing Tables Using Migrations  
+Run the command:  
+php artisan make:migration add_is_admin_column_to_posts_tables --table="posts"  
+A new migration file should be added to your migrations folder. In the  
+function up {  
+    Schema::table{  
+      //add the line here  
+    }
+},   
+add the line:  
+$table->string('is_admin');  // this is the line to add
+To drop the column, add the line:  
+$table->dropColumn('is_admin');  
+to the:  
+function down, schema::table  
+Now, run the command:  
+php artisan migrate  
+  
+### Additional Migration Commands  
+php artisan migrate:reset //deletes(rolls back) all migrations  
+php artisan migreate:refresh  //rolls back and re-runs all migrations. WARNING: This command will delete all data.  
+php artisan migrate:status  //shows what migratiosn have ran  
+
+  
+Documentation: Database Migrations, Creating Indexes  
+https://laravel.com/docs/5.2/migrations#creating-indexes
+
+
+
 
 Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations    
     
