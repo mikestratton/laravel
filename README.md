@@ -176,15 +176,40 @@ to the:
 function down, schema::table  
 Now, run the command:  
 php artisan migrate  
+   
+Documentation: Database Migrations, Creating Indexes  
+https://laravel.com/docs/5.2/migrations#creating-indexes
   
 ### Additional Migration Commands  
 php artisan migrate:reset //deletes(rolls back) all migrations  
 php artisan migreate:refresh  //rolls back and re-runs all migrations. WARNING: This command will delete all data.  
 php artisan migrate:status  //shows what migratiosn have ran  
-
   
-Documentation: Database Migrations, Creating Indexes  
-https://laravel.com/docs/5.2/migrations#creating-indexes
+## Laravel Fundamentals: Raw SQL Queries  
+Documentation: https://laravel.com/docs/5.2/database  
+These examples are not intended for production use.
+### Create Data 
+Route::get('insert', function(){  
+      DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that ever happened to php']);  
+});  
+### Read Data  
+Route::get('/read', function(){  
+    $results = DB::select('select * from posts where id=?', [1]);  
+  
+    foreach($results as $post){  
+        return $post->title;  
+    }  
+});  
+### Update Data  
+Route::get('/update', function(){  
+    $updated = DB::update('update posts set title="Updated Title" where id=?', [1]);  
+    return $updated;  
+})  
+### Delete Data  
+Route::get('/delete', function(){  
+   $deleted = DB::delete('delete from posts where id=?', [1]);  
+   return $deleted;  
+});  
 
 
 
