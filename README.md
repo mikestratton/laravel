@@ -5,7 +5,7 @@
 ### Model View Controller  
   
 Model Database  
-VIEW: User Interface (HTML)   
+View: User Interface (HTML)   
 Controller: PHP/Laravel  
   
 ### Main folders in Laravel:  
@@ -84,11 +84,6 @@ In a terminal, cd to directory of laravel and type(without quotes): "php artisan
 To create a CRUD contoller, type(without quotes): "php artisan make:controller --resource YourControllerName"  
 To find other commands in artsian, from the terminal, type: "php artisan"  
 
-
-
-
-
-  
 ### Routing Controllers
 The following code will route a get request(localhost/post) to a function(@index) within a controller(PostController.php)  
 Route::get('/post', 'PostsController@index');  
@@ -112,7 +107,141 @@ The resource function offers full CRUD functionality, and all methods of the con
 After creating a Route::resource in your routes file, go to a terminal and type in: "php artisan route:list"  
 This will return your routes, including the Route::resource that validates your route has full CRUD functionality.  
 ![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/bash_route_list.PNG)  
+  
+## Views  
+Views are located in the directory resources/views/
+  
+### Create a Custom View  
+1. add a method to your controller file  
+2. in your views folder add a php file with the name yourfile.blade.php  
+3. in your routes file, add a route that points to the method in your controller file   
+  
+#### Example Creation of a Custom View
+1. In your controller file, add the following method:  
+public function contact_view(){  
+        return view('contact');  
+    }  
+2.  In your views folder, create a .php file and name it contact.blade.php  
+3. In your routes.php file, add the following code:  
+Route::get('/contact', 'PostsController@contact');  
+
+## Blade
+Blade is a simple and powerful templating system for laravel.  
+Example:  
+To echo the variable $myvar, you would use: {{$myvar)   
+
+### Blade Master Template  
+Default file name: views/layout/app.blade.php
+  
+Learn more about laravel blade engine: https://laravel.com/docs/5.2/blade  
+
+## Laravel Migrations  
+"Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema."  
+
+### Default Migrations  
+Upon installation, Laravel creates two migrations, located in the database/migrations folder. The migrations are php classes the create user tables and create password resets table. The functions contained in these classes are extensively powerful, allowing for the creation or deletion(drop) of a table.
+
+### Generating Migrations  
+To create a migration, using the migrations located in the database/migrations folder, use the Artisan command:  
+php artisan migrate 
+
+### Make a Migration  
+To make a migration, type in the command:   
+php artisan make:migration create_posts_table --create="posts"   
+Naming scheme for the database table should be lowercase with underscores used as spaces to separate words. 
+my_database_name  
+After using the php artisan make:migration command, you should see a new php file in the migrations folder named: yyyy_mm_dd_tttttt_create_posts_table.php   
+Now, use the migrate command to create the table in your database:  
+php artisan migrate  
+Your terminal should return:  
+Migrated: 2017_05_31_011148_create_posts_table  
+This can be validated in phpMyAdmin  
+To delete the last migration that was created, from your command line type:  
+php artisan migration:rollback  
+  
+### Adding Columns to Existing Tables Using Migrations  
+Run the command:  
+php artisan make:migration add_is_admin_column_to_posts_tables --table="posts"  
+A new migration file should be added to your migrations folder. In the  
+function up {  
+    Schema::table{  
+      //add the line here  
+    }
+},   
+add the line:  
+$table->string('is_admin');  // this is the line to add
+To drop the column, add the line:  
+$table->dropColumn('is_admin');  
+to the:  
+function down, schema::table  
+Now, run the command:  
+php artisan migrate  
+   
+Documentation: Database Migrations, Creating Indexes  
+https://laravel.com/docs/5.2/migrations#creating-indexes
+  
+### Additional Migration Commands  
+php artisan migrate:reset //deletes(rolls back) all migrations  
+php artisan migreate:refresh  //rolls back and re-runs all migrations. WARNING: This command will delete all data.  
+php artisan migrate:status  //shows what migratiosn have ran  
+
+Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations      
+  
+## Laravel Fundamentals: Raw SQL Queries  
+Documentation: https://laravel.com/docs/5.2/database  
+These examples are not intended for production use.
+### Create Data 
+Route::get('insert', function(){  
+      DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that ever happened to php']);  
+});  
+### Read Data  
+Route::get('/read', function(){  
+    $results = DB::select('select * from posts where id=?', [1]);  
+  
+    foreach($results as $post){  
+        return $post->title;  
+    }  
+});  
+### Update Data  
+Route::get('/update', function(){  
+    $updated = DB::update('update posts set title="Updated Title" where id=?', [1]);  
+    return $updated;  
+})  
+### Delete Data  
+Route::get('/delete', function(){  
+   $deleted = DB::delete('delete from posts where id=?', [1]);  
+   return $deleted;  
+});  
+
+## Laravel Fundamentals: Database, Eloquent/ORM
+Documentation: https://laravel.com/docs/5.2/eloquent  
+"The Eloquent ORM included with Laravel provides a beautiful, simple ActiveRecord implementation for working with your database. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table." ~ laravel.com  
+### Eloquent, Reading Data  
+#### Create a Model  
+php artisan make:model Post -m //note up use of Camel(aka pascal) case in naming scheme. -m (creates migration)
+The above model will also create a migration that will be named posts. Models call to lowercase, plural database tables.  
+Examples:  
+Model 'Post' == Table 'posts'  
+Model 'User' == Table 'users'  
+Model 'Article' == Table 'articles'  
+Model 'Page' == Table 'pages'  
+  
+If creating a PostAdmin model for the posts table, Laravel would read the PostAdmin model as being tied to the postadmins table. To resolve this, the following code should be used:  
+class PostAdmin extends Model
+{
+    protected $table = 'posts';
+}  
+Also, by default, a newly created model believes that the attached table has a primary key of 'id'.  
+If your primary key is not named 'id', be sure to use a protected view.  
+class PostAdmin extends Model
+{
+    protected $primaryKey = 'admin_post_id';  
+}   
+  
 
 
+
+
+    
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
