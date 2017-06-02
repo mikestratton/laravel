@@ -1,4 +1,5 @@
 <?php
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/{id}/{name}/{password}', 'PostsController@show_post');
 
 Route::get('/sample', 'PostsController@sample');
 
-
+c
 
 
 /*
@@ -43,10 +44,169 @@ Route::get('admin/posts/recent/popular', array('as'=>'admin.home' ,function () {
     return "this url is " . $url;
 }));
 
-
-
 Route::resource('posts', 'PostsController');*/
 
+
+/*
+|------------------------------------
+| DATABASE Raw SQL Queries
+| Create, Read, Update, Delete
+|------------------------------------
+*/
+
+// create example
+/*Route::get('/insert', function(){
+   DB::insert('insert into posts(title, content) values(?, ?)', ['Eloquent', 'Eloquent uses the Object Relational Model quite eloquently.']);
+
+});*/
+
+// read example
+/*Route::get('/read', function(){
+    $results = DB::select('select * from posts where id=?', [1]);
+
+    foreach($results as $post){
+        return $post->title;
+    }
+});*/
+
+// update example
+/*Route::get('/update', function(){
+
+    $updated = DB::update('update posts set title="Updated Title" where id=?', [1]);
+    return $updated;
+});*/
+
+// delete example
+/*Route::get('/delete', function(){
+   $deleted = DB::delete('delete from posts where id=?', [1]);
+   return $deleted;
+});*/
+
+
+/*
+|------------------------------------
+| Eloquent
+| ORM (Object Relational Model)
+|------------------------------------
+*/
+
+/*Route::get('/read2', function(){
+   $posts = Post::all();
+
+   foreach($posts as $post){
+       return $post->title;
+   }
+});*/
+
+/*Route::get('/find', function(){
+   $post = Post::find(6);
+
+   return $post->title . '<br>' . $post->content;
+});*/
+
+
+/*Route::get('/findwhere', function(){
+    $posts = Post::where('id', 6)->orderBy('title', 'desc')->take(1)->get();
+
+    return $posts;
+});*/
+
+/*Route::get('/findmore', function(){
+
+//    $posts = Post::findOrFail(23);
+//    return $posts;
+
+//    $posts = Post::where('users_count', '<', 50)->firstOrFail;
+
+});*/
+
+
+//create new record
+/*Route::get('/basicinsert', function(){
+
+    $post = new Post;
+
+    $post->title = 'Mike Stratton Merger';
+    $post->content = 'MikeStratton.net is now MVC Horse';
+
+    $post->save();
+
+});*/
+
+// update post with find
+/*Route::get('/basicinsertupdate', function(){
+
+    $post = Post::find(8);
+
+    $post->title = 'New Eloquent 2';
+    $post->content = 'Added some content with eloquent 2';
+
+    $post->save();
+
+});*/
+
+//creating data and configuring mass assignment
+Route::get('/create', function(){
+
+    Post::create(['title'=>'the create method', 'content'=>'Learning alot with Laravel']);
+
+});
+
+
+// update data with eloquent
+/*Route::get('/update', function(){
+
+    Post::where('id', 6)->where('is_admin', 0)->update(['title'=>'New PHP Title', 'content'=>'Laravel is great']);
+
+});*/
+
+// delete data with eloquent
+/*Route::get('/delete', function(){
+
+    $post = Post::find(6);
+    $post->delete();
+});*/
+
+/*Route::get('/delete2', function(){
+
+    Post::destroy([9,10]);
+
+//     Post::where('is_admin', 0)->delete();
+
+});*/
+
+// Soft Delete/Trashing
+Route::get('/softdelete', function(){
+
+    Post::find(21)->delete();
+
+});
+
+// send posts to trash
+/*Route::get('/readsoftdelete', function(){
+
+//    $post = Post::find(11);
+//    return $post;
+
+    // all items including trash
+//    $post= Post::withTrashed()->where('is_admin', 0)->get();
+//    return $post;//
+
+    // just items in trash
+//    $post= Post::onlyTrashed()->where('is_admin', 0)->get();
+//    return $post;
+});*/
+
+
+Route::get('/restore', function(){
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
+});
+
+Route::get('/forcedelete', function(){
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+});
 
 /*
 |------------------------------------
@@ -60,8 +220,6 @@ Route::resource('posts', 'PostsController');*/
  */
 // security feature for laravel
 Route::group(['middleware' => ['web']], function () {
-
-
 
 
 });

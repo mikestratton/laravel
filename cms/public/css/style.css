@@ -3,7 +3,7 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 180px; /* Margin bottom by footer height */
+  margin-bottom: 150px; /* Margin bottom by footer height */
   font-family: 'Fira Sans', sans-serif;
 }
 
@@ -27,8 +27,8 @@ yellow: #ffffcc
 .jumbotron {
     text-align: center;
     background-color: #fff;
-    padding-top: 30px;
-    padding-bottom: 50px;
+    padding-top: 5px;
+    padding-bottom: 20px;
 }
 
 .jumbotron h1 {
@@ -42,7 +42,7 @@ yellow: #ffffcc
 }
 
 jumbotron img {
-    margin: 40px 20px;
+    margin: 0 20px;
 }
 
 
@@ -58,7 +58,7 @@ Responsive navbar-brand image CSS
 
 .navbar-brand>img {
     height: 100%;
-    padding: 15px;
+    padding: 15px 20px 0 20px;
     width: auto;
 }
 
@@ -73,29 +73,30 @@ Responsive navbar-brand image CSS
 }
 
 .navbar-nav>.active>a {
-    color: #000;
+    color: #fff;
     background-color:#ffcccc;
     border: thin solid #ffcccc;
 }
-
-
 
 .navbar-nav>li>a {
     color: #000;
     background-color:#ffffcc;
     border: thin solid #ffffcc;
+    box-shadow: 3px 3px #d4d4d4;
 }
 
 .navbar-nav>li>a:hover {
     color: #fff;
     background-color:#66cc33;
     border: thin solid #66cc33;
+    box-shadow: 6px 6px 9px #d4d4d4;
 }
 
 .navbar-nav>li>a:focus{
-        color: #000;
+    color: #fff;
     background-color:#ffcccc;
     border: thin solid #ffcccc;
+    box-shadow:none;
 }
 
 
@@ -104,20 +105,20 @@ Responsive navbar-brand image CSS
 line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
 
 .logo .navbar-brand {
-    height: 90px;
-    margin: 20px 0;
+    height: 80px;
+    margin: 5px 0;
 }
 
 .logo .nav>li>a {
     padding-top: 12px;
     padding-bottom: 12px;
-    margin: 43px 2px;
+    margin: 23px 2px;
     border-radius: 7px;
 }
 
 .logo .navbar-toggle {
     padding: 10px;
-    margin: 25px 15px 25px 0;
+    margin: 25px 15px 0 20px;
     background-color: #ffffcc;
     border: thin #66cc33 solid;
 }
@@ -207,3 +208,33 @@ line height is 20px by default so add 30px top and bottom to equal the new .navb
     vertical-align: super;
     font-size: 50%;
 }
+
+.bg-yel{
+  background-color: #ffffcc;
+  padding-bottom:20px;
+}
+
+.bg-pin{
+  background-color: #ffcccc;
+  padding-bottom:20px;
+}
+
+.bg-gre{
+  background-color: #ccffcc;
+  padding-bottom:20px;
+}
+
+.col-md-6 {
+  margin:2% 3%;
+  border-radius: 12px;
+}
+
+@media (min-width: 992px){
+  .col-md-6 {
+    width: 43.99999999%;
+    margin:2% 3%;
+    border-radius:12px;
+
+  }
+}
+
