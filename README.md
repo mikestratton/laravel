@@ -238,10 +238,44 @@ class PostAdmin extends Model
     protected $primaryKey = 'admin_post_id';  
 }   
   
+  
+## Laravel Fundamentals: Database, Eloquent Relationships
+Documentation: https://laravel.com/docs/5.2/eloquent-relationships  
+Laravel has several relationships.  
+* One to One  
+* One to One (inverse)  
+* One to Many  
+* One to Many (inverse)  
+* Many to Many  
+* Has Many Through  
+* Polymorphic Relations  
+* Many To Many Polymorphic Relations  
 
+### One to One Relationship  
+Example:  
+Route::get('/user/{id}/post', function($id){  
+    return User::find($id)->post->content;  
+});  
+  
+### One to One Relationship  (inverse)  
+Example:  
+Route::get('/post/{id}/user', function($id){  
+    return Post::find($id)->user->name;  
+});  
+  
+### One to Many 
+Example:  
+Route::get('/posts', function(){  
 
+    $user = User::find(1);  
 
+    foreach($user->posts as $post){  
+        echo $post->title . '<br>';  
+    }  
+});  
 
+### Many to Many
+A pivot table is a lookup table. It is a table that defines how tables relate to other tables.
     
     
 References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
