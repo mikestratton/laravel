@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use App\Post;
 
 /*Route::get('/', function () {
     return view('index'); // points to resources/views/welcome.blade.php
-});*/
+});
 
 Route::get('/', 'PostsController@home');
 
@@ -30,7 +31,7 @@ Route::get('/{id}/{name}/{password}', 'PostsController@show_post');
 
 Route::get('/sample', 'PostsController@sample');
 
-c
+
 
 
 /*
@@ -146,11 +147,11 @@ Route::resource('posts', 'PostsController');*/
 });*/
 
 //creating data and configuring mass assignment
-Route::get('/create', function(){
+/*Route::get('/create', function(){
 
     Post::create(['title'=>'the create method', 'content'=>'Learning alot with Laravel']);
 
-});
+});*/
 
 
 // update data with eloquent
@@ -176,11 +177,11 @@ Route::get('/create', function(){
 });*/
 
 // Soft Delete/Trashing
-Route::get('/softdelete', function(){
+/*Route::get('/softdelete', function(){
 
     Post::find(21)->delete();
 
-});
+});*/
 
 // send posts to trash
 /*Route::get('/readsoftdelete', function(){
@@ -198,7 +199,7 @@ Route::get('/softdelete', function(){
 });*/
 
 
-Route::get('/restore', function(){
+/*Route::get('/restore', function(){
 
     Post::withTrashed()->where('is_admin', 0)->restore();
 
@@ -206,7 +207,65 @@ Route::get('/restore', function(){
 
 Route::get('/forcedelete', function(){
     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+});*/
+
+/*
+|------------------------------------
+| Eloquent Relationships
+|------------------------------------
+*/
+
+// One to One Relationship
+/*Route::get('/user/{id}/post', function($id){
+
+    return User::find($id)->post->content;
+
+});*/
+
+// One to One Relationship (Inverse)
+/*Route::get('/post/{id}/user', function($id){
+
+    return Post::find($id)->user->name;
+
+});*/
+
+// One to Many Relationship
+/*Route::get('/posts', function($id){
+
+    $user = User::find($id);
+
+    foreach($user->posts as $post){
+        echo $post->title . '<br>';
+    }
+});*/
+
+// Many to Many Relationship
+/*Route::get('/user/{id}/role', function($id){
+
+    $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+    return $user;
+
+//    foreach($user->roles as $role){
+//    return $role->name;
+    }
+});*/
+
+// Accessing the intermediate table (aka pivot table)
+Route::get('/user/{id}/pivot', function($id){
+
+    $user = User::find($id);
+
+    foreach($user->roles as $role) {
+
+        echo $role->pivot->created_at;
+    }
+
 });
+
+
+
+
+
 
 /*
 |------------------------------------
