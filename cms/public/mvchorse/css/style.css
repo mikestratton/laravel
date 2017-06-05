@@ -7,13 +7,25 @@ body {
   font-family: 'Fira Sans', sans-serif;
 }
 
-
+code {
+	font-size:14px;
+}
 /**************
 COLORS: 
   blue: #00ccff
 orange: #ff6633
 yellow: #ffffcc
 ***************/
+.clr-blue {
+	color: #00ccff;
+}
+.clr-orange {
+	color:#ff6633;
+}
+.clr-green {
+	color:#7ac943;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
