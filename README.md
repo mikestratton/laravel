@@ -288,21 +288,21 @@ Documentation: https://laravel.com/docs/5.2/eloquent-relationships#polymorphic-r
 ### Many to Many Polymorphic Relations 
 Documentation: https://laravel.com/docs/5.2/eloquent-relationships#many-to-many-polymorphic-relations   
   
-#### Table Structure 
+#### Table Structure   
 In addition to traditional polymorphic relations, you may also define "many-to-many" polymorphic relations. For example, a blog Post and Video model could share a polymorphic relation to a Tag model. Using a many-to-many polymorphic relation allows you to have a single list of unique tags that are shared across blog posts and videos.    
-  
-#### Model Structure
+   
+#### Model Structure  
 Next, we're ready to define the relationships on the model. The Post and Video models will both have a tags method that calls the morphToMany method on the base Eloquent class  
-  
-#### Defining The Inverse Of The Relationship
+    
+#### Defining The Inverse Of The Relationship  
 Next, on the Tag model, you should define a method for each of its related models. So, for this example, we will define a posts method and a videos method  
   
-#### Retrieving The Relationship
+#### Retrieving The Relationship  
 Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the tags for a post, you can simply use the tags dynamic property:   
-
+  
 ## Laravel Database: Tinker (CRUD)  
-Tinker is good for playing around with data before implemeting with routes.
-
+Tinker is good for playing around with data before implemeting with routes.  
+  
 ### Create Data with Tinker  
 Example: From the command line, type:  
 php artisan tinker  
@@ -320,10 +320,6 @@ Returns:
      id: 3,  
    }  
 Type in:  
->>> $post  
-Returns: 
-Same as creation.
-Type in:  
 >>> $post = new App\Post  
 Returns:  
 => App\Post {#626}   
@@ -335,16 +331,16 @@ To save, type in:
 >>> $post->save();  
 Other commands:  
 >>> $post = App\Post::find(6);  
->>> $post = App\Post::where('id',2)->first();  
->>> $post = App\Post::whereId(2)->first();
-
+>>> $post = App\Post::where('id',2)->first();   
+>>> $post = App\Post::whereId(2)->first();  
+  
 ### Update & Delete Data with Tinker  
 Example:  
 From command line, type:  
 >>> $post = App\Post::find(2)  
->>> $post->title = "Changed Post Title with Tinker"
+>>> $post->title = "Changed Post Title with Tinker"  
 >>> $post->content = "Change content with ID=2 with Tinke from command line within phpStorm"   
-Data is not stored in database.
+Data is not stored in database.  
 Type:  
 >>> $post->save();  
 Data is now stored in database.  
@@ -352,21 +348,32 @@ Data is now stored in database.
 ### Relationships with Tinker  
 Tinker can be used to find out how relationships are working.   
 Example: User and Posts Relationship  
->>> $user = App\User::Find(1);
+>>> $user = App\User::Find(1);  
 Check User with Post relationship, Type:  
->>> $user->posts
+>>> $user->posts  
 If the relationship is not set up correctly, a similar message will return:  
 Illuminate\Database\QueryException with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'posts.user_id' in 'where clause' (SQL: select * from `posts` where `posts`.`user_id` = 1 and `posts`.`user_id` is not null and `posts`.`deleted_at` is null)
 '  
 To fix this error, from within your xxxx_xx_xx_xxxxxx_create_posts_table.php script, add the following line: 
 $table->integer('user_id')->unsigned();   
 Be sure this line is added within Schema{// insert here} inside the up function  
-public function up()
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-        });
-    }
+For example:  
+public function up()  
+    {  
+        Schema::create('posts', function (Blueprint $table) {  
+            $table->integer('user_id')->unsigned();  
+        });  
+    }  
+    
+    
+If the relationship between User and Roles are correct, when you type in the command:  
+>>> $user->roles     
+The command line will return something similar to:  
+=> Illuminate\Database\Eloquent\Collection {#650  
+     all: [  
+       App\Role {#647  
+         id: 1,  
+         name: "Administrator",  
 
 
 
