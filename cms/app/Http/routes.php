@@ -1,6 +1,10 @@
 <?php
+use App\Country;
 use App\Post;
+use App\Tag;
 use App\User;
+use App\Photo;
+use App\Video;
 
 /*
 |--------------------------------------------------------------------------
@@ -251,7 +255,7 @@ Route::get('/forcedelete', function(){
 });*/
 
 // Accessing the intermediate table (aka pivot table)
-Route::get('/user/{id}/pivot', function($id){
+/*Route::get('/user/{id}/pivot', function($id){
 
     $user = User::find($id);
 
@@ -260,10 +264,70 @@ Route::get('/user/{id}/pivot', function($id){
         echo $role->pivot->created_at;
     }
 
+});*/
+
+
+// Has many through Reference: https://laravel.com/docs/5.2/eloquent-relationships#has-many-through
+/*Route::get('/user/{id}/country', function($id){
+
+    $country = Country::find($id);
+
+    foreach($country->posts as $post) {
+        echo '<h2>' . $post->title . '</h2>' . '<p>' . $post->content . '</p><br><hr><br>';
+    }
+
+});*/
+
+
+// Polymorphic Relations Reference: https://laravel.com/docs/5.2/eloquent-relationships#polymorphic-relations
+/*Route::get('user/{id}/photos', function($id){
+
+    $user = User::find($id);
+
+    foreach($user->photos as $photo) {
+        echo "<p><img style=\"max-height:200px;max-width:250px;width:auto;\" src=\"http://localhost/laravel/cms/public/mvchorse/images/" . $photo->path . "\"></p>";
+    }
+
+});*/
+
+/*Route::get('post/{id}/photos', function($id){
+
+    $post = Post::find($id);
+
+    foreach($post->photos as $photo) {
+        echo "<p><img style=\"max-height:200px;max-width:250px;width:auto;\" src=\"http://localhost/laravel/cms/public/images/" . $photo->path . "\"></p>";
+    }
+
+});*/
+
+// Polymorphic Relations : Inverse
+/*Route::get('/photo/{id}/post', function($id){
+
+    $photo = Photo::findOrFail($id);
+
+    return $photo->imagetable;
+
+});*/
+
+
+// Many to Many Polymorphic Relations
+/*Route::get('/post/{id}/tag', function($id){
+
+    $post = Post::find($id);
+
+    foreach($post->tags as $tag) {
+        echo $tag->name;
+    }
+});*/
+
+Route::get('/tag/{id}/post', function($id){
+
+    $tag = Tag::find($id);
+
+    foreach($tag->posts as $post) {
+        echo $post->title;
+    }
 });
-
-
-
 
 
 
