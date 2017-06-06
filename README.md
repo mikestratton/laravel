@@ -276,6 +276,124 @@ Route::get('/posts', function(){
 
 ### Many to Many
 A pivot table is a lookup table. It is a table that defines how tables relate to other tables.
+
+### Has Many Through
+The "has-many-through" relationship provides a convenient short-cut for accessing distant relations via an intermediate relation. For example, a Country model might have many Post models through an intermediate User model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:   
+Documentation: https://laravel.com/docs/5.2/eloquent-relationships#has-many-through   
+
+### Polymorphic Relations  
+Polymorphic relations allow a model to belong to more than one other model on a single association. For example, imagine users of your application can "like" both posts and comments. Using polymorphic relationships, you can use a single likes table for both of these scenarios. First, let's examine the table structure required to build this relationship  
+Documentation: https://laravel.com/docs/5.2/eloquent-relationships#polymorphic-relations  
+
+### Many to Many Polymorphic Relations 
+Documentation: https://laravel.com/docs/5.2/eloquent-relationships#many-to-many-polymorphic-relations   
+  
+#### Table Structure   
+In addition to traditional polymorphic relations, you may also define "many-to-many" polymorphic relations. For example, a blog Post and Video model could share a polymorphic relation to a Tag model. Using a many-to-many polymorphic relation allows you to have a single list of unique tags that are shared across blog posts and videos.    
+   
+#### Model Structure  
+Next, we're ready to define the relationships on the model. The Post and Video models will both have a tags method that calls the morphToMany method on the base Eloquent class  
+    
+#### Defining The Inverse Of The Relationship  
+Next, on the Tag model, you should define a method for each of its related models. So, for this example, we will define a posts method and a videos method  
+  
+#### Retrieving The Relationship  
+Once your database table and models are defined, you may access the relationships via your models. For example, to access all of the tags for a post, you can simply use the tags dynamic property:   
+  
+## Laravel Database: Tinker (CRUD)  
+Tinker is good for playing around with data before implemeting with routes.  
+  
+### Create Data with Tinker  
+Example: From the command line, type:  
+php artisan tinker  
+This will return:  
+Psy Shell v0.7.2 (PHP 7.0.13 ΓÇö cli) by Justin Hileman  
+>>>  
+Type in: 
+>>> $post = App\Post::create(['title'=>'PHP from tinker','content'=>'Content created from Tinker']);   
+Returns:  
+=> App\Post {#631  
+     title: "PHP from tinker",  
+     content: "Content created from Tinker",  
+     updated_at: "2017-06-06 08:06:23",  
+     created_at: "2017-06-06 08:06:23",  
+     id: 3,  
+   }  
+Type in:  
+>>> $post = new App\Post  
+Returns:  
+=> App\Post {#626}   
+Type in:  
+>>> $post->title = "new title from this object"  
+>>> $post->content = "This content was created from the command line interface using tinker"  
+Data has not been saved in database yet.  
+To save, type in:  
+>>> $post->save();  
+Other commands:  
+>>> $post = App\Post::find(6);  
+>>> $post = App\Post::where('id',2)->first();   
+>>> $post = App\Post::whereId(2)->first();  
+  
+### Update & Delete Data with Tinker  
+Example:  
+From command line, type:  
+>>> $post = App\Post::find(2)  
+>>> $post->title = "Changed Post Title with Tinker"  
+>>> $post->content = "Change content with ID=2 with Tinke from command line within phpStorm"   
+Data is not stored in database.  
+Type:  
+>>> $post->save();  
+Data is now stored in database.  
+
+### Relationships with Tinker  
+Tinker can be used to find out how relationships are working.   
+Example: User and Posts Relationship  
+>>> $user = App\User::Find(1);  
+Check User with Post relationship, Type:  
+>>> $user->posts  
+If the relationship is not set up correctly, a similar message will return:  
+Illuminate\Database\QueryException with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'posts.user_id' in 'where clause' (SQL: select * from `posts` where `posts`.`user_id` = 1 and `posts`.`user_id` is not null and `posts`.`deleted_at` is null)
+'  
+To fix this error, from within your xxxx_xx_xx_xxxxxx_create_posts_table.php script, add the following line: 
+$table->integer('user_id')->unsigned();   
+Be sure this line is added within Schema{// insert here} inside the up function  
+For example:  
+public function up()  
+    {  
+        Schema::create('posts', function (Blueprint $table) {  
+            $table->integer('user_id')->unsigned();  
+        });  
+    }  
     
     
-References: https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
+If the relationship between User and Roles are correct, when you type in the command:  
+>>> $user->roles     
+The command line will return something similar to:  
+=> Illuminate\Database\Eloquent\Collection {#650  
+     all: [  
+       App\Role {#647  
+         id: 1,  
+         name: "Administrator",  
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+    
+    
+## References:    
+https://laravel.com/docs/5.2  
+https://laravel.com/api/5.2/index.html   
+https://www.jetbrains.com/phpstorm/  
+https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
+
