@@ -377,7 +377,7 @@ The command line will return something similar to:
 
 
 ## Database - Eloquent One to One Relationship CRUD   
-
+Separeate laravel project, located in the /onetoone directory.  
 
 
 
