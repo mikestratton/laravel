@@ -376,6 +376,7 @@ The command line will return something similar to:
          name: "Administrator",  
 
 
+## Database - Eloquent One to One Relationship CRUD   
 
 
 
