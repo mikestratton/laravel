@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/../manytomany/.idea/manytomany.iml" filepath="$PROJECT_DIR$/../manytomany/.idea/manytomany.iml" />
       <module fileurl="file://$PROJECT_DIR$/../onetomany/.idea/onetomany.iml" filepath="$PROJECT_DIR$/../onetomany/.idea/onetomany.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/onetoone.iml" filepath="$PROJECT_DIR$/.idea/onetoone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../polymorphic/.idea/polymorphic.iml" filepath="$PROJECT_DIR$/../polymorphic/.idea/polymorphic.iml" />
     </modules>
   </component>
 </project>

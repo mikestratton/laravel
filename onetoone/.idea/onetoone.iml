@@ -186,5 +186,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="manytomany" />
+    <orderEntry type="module" module-name="polymorphic" />
   </component>
 </module>
