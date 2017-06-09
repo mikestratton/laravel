@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../manytomany/.idea/manytomany.iml" filepath="$PROJECT_DIR$/../manytomany/.idea/manytomany.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../onetomany/.idea/onetomany.iml" filepath="$PROJECT_DIR$/../onetomany/.idea/onetomany.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/onetoone.iml" filepath="$PROJECT_DIR$/.idea/onetoone.iml" />
+    </modules>
+  </component>
+</project>

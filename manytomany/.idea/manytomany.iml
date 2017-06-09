@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/classpreloader/classpreloader" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/dnoegel/php-xdg-base-dir" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/fzaninotto/faker" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/hamcrest/hamcrest-php" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jakub-onderka/php-console-color" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jakub-onderka/php-console-highlighter" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jeremeamia/SuperClosure" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/league/flysystem" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/mockery/mockery" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/mtdowling/cron-expression" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/nesbot/carbon" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpspec/prophecy" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-text-template" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/psy/psysh" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/comparator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/diff" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/environment" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/exporter" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/global-state" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/recursion-context" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/css-selector" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/dom-crawler" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/http-foundation" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/process" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/routing" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/translation" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/vlucas/phpdotenv" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/webmozart/assert" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/classpreloader/classpreloader" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/dnoegel/php-xdg-base-dir" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/fzaninotto/faker" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/hamcrest/hamcrest-php" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jakub-onderka/php-console-color" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jakub-onderka/php-console-highlighter" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/jeremeamia/SuperClosure" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/league/flysystem" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/mockery/mockery" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/mtdowling/cron-expression" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/nesbot/carbon" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/reflection-common" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpspec/prophecy" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-text-template" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/psy/psysh" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/comparator" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/diff" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/environment" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/exporter" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/global-state" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/recursion-context" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/sebastian/version" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/console" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/css-selector" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/debug" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/dom-crawler" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/event-dispatcher" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/finder" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/http-foundation" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/http-kernel" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/process" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/routing" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/translation" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/var-dumper" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/vlucas/phpdotenv" />
+          <root url="file://$MODULE_DIR$/../onetoone/vendor/webmozart/assert" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

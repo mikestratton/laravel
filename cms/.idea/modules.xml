@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/cms.iml" filepath="$PROJECT_DIR$/.idea/cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../onetoone/.idea/onetoone.iml" filepath="$PROJECT_DIR$/../onetoone/.idea/onetoone.iml" />
     </modules>
   </component>
 </project>
