@@ -391,8 +391,7 @@ Separate laravel project, located in the /polymorphic directory.
 ## Database - Eloquent Polymorphic Many to Many Relationship CRUD
 Separate laravel project, located in the /polymorphicmanytomany directory.  
    
-
-
+## Forms and Validation
 
 
     
