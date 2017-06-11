@@ -17,10 +17,11 @@ use App\Video;
 |
 */
 
-/*Route::get('/', function () {
-    return view('index'); // points to resources/views/welcome.blade.php
+Route::get('/', function () {
+    return view('welcome'); // points to resources/views/welcome.blade.php
 });
 
+/*
 Route::get('/', 'PostsController@home');
 
 Route::get('/about', 'PostsController@about');
@@ -320,14 +321,24 @@ Route::get('/forcedelete', function(){
     }
 });*/
 
-Route::get('/tag/{id}/post', function($id){
+/*Route::get('/tag/{id}/post', function($id){
 
     $tag = Tag::find($id);
 
     foreach($tag->posts as $post) {
         echo $post->title;
     }
-});
+});*/
+
+/*
+|------------------------------------
+| CRUD Application
+|------------------------------------
+ */
+Route::resource('/posts', 'PostsController');
+
+
+
 
 
 

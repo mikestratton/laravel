@@ -22,7 +22,7 @@
 </head>
 
 <body>
-@include('partials.header')
+
 
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-@include('partials.footer')
+
 </body>
 
 </html>

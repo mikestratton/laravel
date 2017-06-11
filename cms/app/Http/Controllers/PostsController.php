@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,11 +12,12 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
-        public function index($id)
+        public function index()
         {
-            return "I am passing a variable with the number: " . $id;
+            $posts = Post::all();
+            return view('posts.index', compact('posts'));
         }
 
     /**
@@ -25,7 +27,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return "this is the method that creates stuff";
+        return view('posts.create');
     }
 
     /**
@@ -36,18 +38,33 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //save to database
+        Post::create($request->all());
+
+        return redirect('/posts');
+
+
+        //save to database example 2
+//        $input = $request->all();
+//        $input['title'] = $request->title;
+//        Post::create($request->all());
+
+        //save to database example 3
+//        $post = new Post;
+//        $post->title = $request->title;
+//        $post->save();
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function show($id)
     {
-        return "this is the show method " . $id;
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -58,7 +75,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -66,11 +84,13 @@ class PostsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        return redirect('/posts');
     }
 
     /**
@@ -81,7 +101,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::whereId($id)->delete();
+        return redirect('/posts');
     }
 
     public function home(){
