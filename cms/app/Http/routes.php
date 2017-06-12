@@ -5,6 +5,7 @@ use App\Tag;
 use App\User;
 use App\Photo;
 use App\Video;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -335,12 +336,44 @@ Route::get('/forcedelete', function(){
 | CRUD Application
 |------------------------------------
  */
-Route::resource('/posts', 'PostsController');
+
+    Route::resource('/posts', 'PostsController');
+
+    Route::get('/dates', function(){
+
+        echo 'PHP DateTime +10 days:<br>';
+        $date = new DateTime('+10 days');
+        echo $date->format('m-d-Y');
+
+        echo '<br><br>Carbon +10 days diffForHumans:<br>';
+        echo Carbon::now()->addDays(10)->diffForHumans();
+        echo '<br><br>A few more Carbon using diffForHumans:</br>';
+        echo Carbon::now()->subMonths(5)->diffForHumans();
+        echo '<br>';
+        echo Carbon::now()->yesterday()->diffForHumans();
+    });
+
+    Route::get('/getname', function(){
+        $user = User::find(1);
+        echo $user->name;
+    });
+
+    Route::get('/setname', function(){
+        $user = User::find(1);
+        $user->name = "buster";
+        $user->save();
+    });
 
 
 
+/*
+|------------------------------------
+| Authorization for logged users
+|------------------------------------
+Route::group(['middleware' => ['auth']], function () {
 
-
+});
+ */
 
 /*
 |------------------------------------

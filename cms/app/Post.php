@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    public $directory = '/uploads/';
+
     use SoftDeletes;
 
     protected $date = ['deleted_at'];
@@ -17,10 +19,7 @@ class Post extends Model
 | MassAssignmentException
 |------------------------------------
 */
-    protected $fillable = [
-        'title',
-        'content',
-    ];
+    protected $fillable = ['title', 'content', 'path'];
 
 /*
 |------------------------------------
@@ -52,5 +51,13 @@ class Post extends Model
 
     public function tags(){
         return $this->morphToMany('App\Tag', 'taggable');
+    }
+
+    public static function scopeLatest($query) {
+        return $query->orderBy('id', 'asc')->get();
+    }
+
+    public function getPathAttribute($value) {
+        return $this->directory . $value;
     }
 }
