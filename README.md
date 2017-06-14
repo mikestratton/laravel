@@ -393,13 +393,14 @@ Separate laravel project, located in the /polymorphicmanytomany directory.
 
 ## Authenitcation: Form Login  
 Separate laravel project, located in the /login directory.  
-### Create user authorization, step by step.  
-1. Install laravel using composer.
-2. Using phpMyAdmin, create an empty database.
-3. Update your connection string in the .env file.
-4. In terminal, type: php artisan migrate
-5. In terminal, type: php artisan make:auth
-
+### Create user authorization, step by step  
+1. Install laravel using composer.  
+2. Using phpMyAdmin, create an empty database.  
+3. Update your connection string in the .env file.  
+4. In terminal, type: php artisan migrate  
+5. In terminal, type: php artisan make:auth  
+#### Laravel Authentication with phpStorm in background:  
+![Laravel Authentication in one minute](https://github.com/mikestratton/laravel/blob/master/laravel_authentication.PNG)
 
 Documentation: https://laravel.com/docs/5.2/authentication  
 
