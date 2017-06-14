@@ -197,5 +197,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="login" />
   </component>
 </module>
