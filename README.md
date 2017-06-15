@@ -425,7 +425,52 @@ Route::get('/admin/user/role', ['middleware'=>'role', function(){
     return "do something";  
 }]);  
 4. In RoleMiddleware.php, add to public function handle:  
-    return redirect('/');
+    return redirect('/');  
+5. Create a role model and migration:  
+php artisan make:model Role -m  
+6. Add columns to migrations:  
+In the *_create_users_table:  
+$table->integer('role_id');  
+In the *_create_roles_table:  
+$table->string('name');  
+7. In the Role.php file, add:  
+protected $fillable = [ 'name', 'email', 'password',];  
+8. in the User.php file, add:  
+    public function role(){  
+      return $this->belongsTo('App\Role');  
+    }   
+9. php artisan make:middleware IsAdmin  
+10. Register new middleware: In Kernel.php, add to protected $routedMiddleware:  
+'IsAdmin'     =>    \App\Http\Middleware\IsAdmin::class,  
+11. in phpMyAdmin, insert two rows into the Roles table: administrator, subscriber  
+12. In the User.php file, add:  
+    public function isAdmin(){  
+        if($this->role->name == 'administrator'){  
+            return true;  
+        }  
+        return false;  
+    }  
+13. In phpMyAdmin,  
+update `laravel_middleware`.`users` SET `role_id` = '1' WHERE `users`.`id` = 1;
+14. In IsAdmin.php, add to public function handle:   
+          $user = Auth::user();  
+          if(!$user->isAdmin()){
+            return redirect('/'); 
+        }  
+15. php artisan make:controller AdminController  
+16. Add a route:  
+Route::get('/admin', 'AdminController$index');  
+17. In the AdminController.php file, add:  
+    public function __construct()  
+    {  
+        $this->middleware('IsAdmin');  
+    }  
+  
+    public function index(){  
+        return "you are an admin";  
+    }  
+
+
 
 
 Documentation: https://laravel.com/docs/5.2/middleware  
