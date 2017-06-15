@@ -404,6 +404,32 @@ Separate laravel project, located in the /login directory.
 
 Documentation: https://laravel.com/docs/5.2/authentication  
 
+## HTTP Middleware  
+Separate laravel project, located in the /middleware directory.  
+Make sure to migrate and add user authorization.  
+Authorization:  
+php artisan make:auth  
+
+### Registering a Middleware  
+To put application in maintenance mode, type:  
+php artisan down  
+Back online : php artisan up  
+### Creation of a Middleware for User Roles  
+1. To create a middleware, type:  
+php artisan make:middleware  RoleMiddleware // naming convention must follow "FirstCase"  
+2. Open file: app/Http/Kernel.php  
+3. In kernel.php, add an array member to protected $routeMiddleware:  
+'role' => \App\Http\Middleware\RoleMiddleware::class,    
+4. In your routes file, add a route:  
+Route::get('/admin/user/role', ['middleware'=>'role', function(){  
+    return "do something";  
+}]);  
+4. In RoleMiddleware.php, add to public function handle:  
+    return redirect('/');
+
+
+Documentation: https://laravel.com/docs/5.2/middleware  
+
     
     
 ## References:    
