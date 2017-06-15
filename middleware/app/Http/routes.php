@@ -11,25 +11,16 @@
 |
 */
 
-use Illuminate\Support\Facades\Auth;
-
 Route::get('/', function () {
-
     return view('welcome');
-
-/*    if(Auth::check()){
-        return "the user is logged in";
-    }*/
-
-/*    $username = "";
-    $password = "";
-    if(Auth::attempt(['username'=>$username, 'password'=>$password])){
-
-        return redirect()->intended('/admin');
-    }*/
-
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/admin/user/roles', ['middleware'=> ['role', 'auth', 'web'], function(){
+
+    return "your assinged the admin role, do something";
+
+}]);
