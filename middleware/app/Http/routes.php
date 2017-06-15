@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,8 +21,11 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/admin/user/roles', ['middleware'=> ['role', 'auth', 'web'], function(){
+Route::get('/admin/user/roles', ['middleware'=> ['web'], function(){
 
     return "your assinged the admin role, do something";
 
 }]);
+
+
+Route::get('/admin', 'AdminController@index');
