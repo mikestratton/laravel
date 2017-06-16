@@ -468,12 +468,29 @@ Route::get('/admin', 'AdminController$index');
   
     public function index(){  
         return "you are an admin";  
-    }  
-
-
-
-
+    }   
 Documentation: https://laravel.com/docs/5.2/middleware  
+
+## Laravel Sessions
+Example:  
+In HomeController.php, append public function index():  
+ public function index(Request $request)  
+    {  
+//        $request->session()->put(['mike'=>'senior developer']); // create session  
+//        $request->session()->get('mike'); // read session  
+//        session(['tina'=>'ceo']); // global function  
+//        $request->session()->forget('mike'); delete mike session  
+//        $request->session()->flush(); // delete all  
+//        return session()->all(); // read all  
+//        return view('home');  
+    }  
+Documentation: https://laravel.com/docs/5.2/session  
+
+## Laravel Sending Email/Api  
+
+Documentation: https://laravel.com/docs/5.2/mail
+
+
 
     
     
