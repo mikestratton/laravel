@@ -18,21 +18,21 @@ public
 vendor  
 public  (css, javascript, images, etc)  
 resources/assets/sass (css preprocessor)  
-resources/views (html files, any files used for users/visitors)
+resources/views (html files, any files used for users/visitors)  
 resources/errors  (504 pages, etc)  
 tests (unit tests, test driven development)  
 vender (extensive dependencies in laravel)  
 
 ### Main files in Laravel:  
-.env  (used as a security measure, used in config/database.php)
+.env  (used as a security measure, used in config/database.php)  
 .gitignore (ignore .env, use templates provided by gitignore.io and github.com    
 composer.json (required frameworks)      
 app/Http/routes.php  
-config/app.php (register classes for packages and/or plugins, Laravel framework service providers)
+config/app.php (register classes for packages and/or plugins, Laravel framework service providers)  
 config/database.php (database connection by way of .env file)  
 config/mail.php (email configuration, smtp, port, etc)  
 database/factories/ModelFactory.php (classes used to create content)  
-database/seeds/DatabaseSeeder.php (create alot of content for a website)
+database/seeds/DatabaseSeeder.php (create alot of content for a website)  
 gulpfile.js (compile sass into css)  
 package.json (required dependencies)  
    
@@ -42,7 +42,7 @@ User friendly applications are dependent on use of routes. Routes are in the URL
 Laravel 5.2 Docs, Routes Page: https://laravel.com/docs/5.2/routing   
   
 ### Routes Examples  
-#### Example 1
+#### Example 1  
 Route::get('/', function () {  
     return view('welcome');                   // points to resources/views/welcome.blade.php  
 });   
@@ -94,12 +94,12 @@ In routes file, add this line:
 Route::get('/post/{id}', 'PostsController@index');  
 In your controller, add this function:  
 public function index($id)  
-    {  
-        return "I am passing a variable with the number: " . $id;  
-    }  
+    {   
+        return "I am passing a variable with the number: " . $id;   
+    }   
    
 ### Resources and Controllers   
-The 'resource' method creates special routes that can be used in the controller.
+The 'resource' method creates special routes that can be used in the controller.  
 Using the method 'resource'  
 In your routes file, type: Route::resource('posts', 'PostsController');  
 Using the get function, as in: Route::get('/posts', 'PostControllers.php@index'); needs to call a specific method.   
@@ -109,7 +109,7 @@ This will return your routes, including the Route::resource that validates your 
 ![Git Bash returns Routes with Artisan](https://raw.githubusercontent.com/mikestratton/laravel/master/bash_route_list.PNG)  
   
 ## Views  
-Views are located in the directory resources/views/
+Views are located in the directory resources/views/  
   
 ### Create a Custom View  
 1. add a method to your controller file  
@@ -121,7 +121,7 @@ Views are located in the directory resources/views/
 public function contact_view(){  
         return view('contact');  
     }  
-2.  In your views folder, create a .php file and name it contact.blade.php  
+2.  In your views folder, create a .php file and name it contact.blade.php   
 3. In your routes.php file, add the following code:  
 Route::get('/contact', 'PostsController@contact');  
 
@@ -131,7 +131,7 @@ Example:
 To echo the variable $myvar, you would use: {{$myvar)   
 
 ### Blade Master Template  
-Default file name: views/layout/app.blade.php
+Default file name: views/layout/app.blade.php  
   
 Learn more about laravel blade engine: https://laravel.com/docs/5.2/blade  
 
@@ -139,17 +139,17 @@ Learn more about laravel blade engine: https://laravel.com/docs/5.2/blade
 "Migrations are like version control for your database, allowing your team to easily modify and share the application's database schema."  
 
 ### Default Migrations  
-Upon installation, Laravel creates two migrations, located in the database/migrations folder. The migrations are php classes the create user tables and create password resets table. The functions contained in these classes are extensively powerful, allowing for the creation or deletion(drop) of a table.
+Upon installation, Laravel creates two migrations, located in the database/migrations folder. The migrations are php classes the create user tables and create password resets table. The functions contained in these classes are extensively powerful, allowing for the creation or deletion(drop) of a table.  
 
 ### Generating Migrations  
-To create a migration, using the migrations located in the database/migrations folder, use the Artisan command:  
-php artisan migrate 
+To create a migration, using the migrations located in the database/migrations folder, use the Artisan command:   
+php artisan migrate   
 
 ### Make a Migration  
 To make a migration, type in the command:   
 php artisan make:migration create_posts_table --create="posts"   
-Naming scheme for the database table should be lowercase with underscores used as spaces to separate words. 
-my_database_name  
+Naming scheme for the database table should be lowercase with underscores used as spaces to separate words.  
+my_database_name   
 After using the php artisan make:migration command, you should see a new php file in the migrations folder named: yyyy_mm_dd_tttttt_create_posts_table.php   
 Now, use the migrate command to create the table in your database:  
 php artisan migrate  
@@ -166,10 +166,10 @@ A new migration file should be added to your migrations folder. In the
 function up {  
     Schema::table{  
       //add the line here  
-    }
-},   
+    }  
+},    
 add the line:  
-$table->string('is_admin');  // this is the line to add
+$table->string('is_admin');  // this is the line to add  
 To drop the column, add the line:  
 $table->dropColumn('is_admin');  
 to the:  
@@ -178,7 +178,7 @@ Now, run the command:
 php artisan migrate  
    
 Documentation: Database Migrations, Creating Indexes  
-https://laravel.com/docs/5.2/migrations#creating-indexes
+https://laravel.com/docs/5.2/migrations#creating-indexes  
   
 ### Additional Migration Commands  
 php artisan migrate:reset //deletes(rolls back) all migrations  
@@ -189,7 +189,7 @@ Learn more about laravel migrations: https://laravel.com/docs/5.2/migrations
   
 ## Laravel Fundamentals: Raw SQL Queries  
 Documentation: https://laravel.com/docs/5.2/database  
-These examples are not intended for production use.
+These examples are not intended for production use.  
 ### Create Data 
 Route::get('insert', function(){  
       DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with Laravel', 'Laravel is the best thing that ever happened to php']);  
@@ -218,7 +218,7 @@ Documentation: https://laravel.com/docs/5.2/eloquent
 "The Eloquent ORM included with Laravel provides a beautiful, simple ActiveRecord implementation for working with your database. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in your tables, as well as insert new records into the table." ~ laravel.com  
 ### Eloquent, Reading Data  
 #### Create a Model  
-php artisan make:model Post -m //note up use of Camel(aka pascal) case in naming scheme. -m (creates migration)
+php artisan make:model Post -m //note up use of Camel(aka pascal) case in naming scheme. -m (creates migration)  
 The above model will also create a migration that will be named posts. Models call to lowercase, plural database tables.  
 Examples:  
 Model 'Post' == Table 'posts'  
@@ -227,15 +227,15 @@ Model 'Article' == Table 'articles'
 Model 'Page' == Table 'pages'  
   
 If creating a PostAdmin model for the posts table, Laravel would read the PostAdmin model as being tied to the postadmins table. To resolve this, the following code should be used:  
-class PostAdmin extends Model
-{
-    protected $table = 'posts';
-}  
+class PostAdmin extends Model  
+{  
+    protected $table = 'posts';  
+}    
 Also, by default, a newly created model believes that the attached table has a primary key of 'id'.  
 If your primary key is not named 'id', be sure to use a protected view.  
-class PostAdmin extends Model
-{
-    protected $primaryKey = 'admin_post_id';  
+class PostAdmin extends Model  
+{  
+    protected $primaryKey = 'admin_post_id';    
 }   
   
   
@@ -253,8 +253,8 @@ Laravel has several relationships.
 
 ### One to One Relationship  
 Example:  
-Route::get('/user/{id}/post', function($id){  
-    return User::find($id)->post->content;  
+Route::get('/user/{id}/post', function($id){   
+    return User::find($id)->post->content;   
 });  
   
 ### One to One Relationship  (inverse)  
@@ -266,16 +266,16 @@ Route::get('/post/{id}/user', function($id){
 ### One to Many 
 Example:  
 Route::get('/posts', function(){  
-
-    $user = User::find(1);  
-
-    foreach($user->posts as $post){  
-        echo $post->title . '<br>';  
-    }  
-});  
+  
+    $user = User::find(1);    
+  
+    foreach($user->posts as $post){   
+        echo $post->title . '<br>';   
+    }   
+});   
 
 ### Many to Many
-A pivot table is a lookup table. It is a table that defines how tables relate to other tables.
+A pivot table is a lookup table. It is a table that defines how tables relate to other tables.  
 
 ### Has Many Through
 The "has-many-through" relationship provides a convenient short-cut for accessing distant relations via an intermediate relation. For example, a Country model might have many Post models through an intermediate User model. In this example, you could easily gather all blog posts for a given country. Let's look at the tables required to define this relationship:   
@@ -353,8 +353,8 @@ Check User with Post relationship, Type:
 >>> $user->posts  
 If the relationship is not set up correctly, a similar message will return:  
 Illuminate\Database\QueryException with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'posts.user_id' in 'where clause' (SQL: select * from `posts` where `posts`.`user_id` = 1 and `posts`.`user_id` is not null and `posts`.`deleted_at` is null)
-'  
-To fix this error, from within your xxxx_xx_xx_xxxxxx_create_posts_table.php script, add the following line: 
+'   
+To fix this error, from within your xxxx_xx_xx_xxxxxx_create_posts_table.php script, add the following line:  
 $table->integer('user_id')->unsigned();   
 Be sure this line is added within Schema{// insert here} inside the up function  
 For example:  
@@ -374,8 +374,7 @@ The command line will return something similar to:
        App\Role {#647  
          id: 1,  
          name: "Administrator",  
-
-
+  
 ## Database - Eloquent One to One Relationship CRUD   
 Separate laravel project, located in the /onetoone directory.  
 
@@ -400,7 +399,7 @@ Separate laravel project, located in the /login directory.
 4. In terminal, type: php artisan migrate  
 5. In terminal, type: php artisan make:auth  
 #### Laravel Authentication with phpStorm in background:  
-![Laravel Authentication in one minute](https://github.com/mikestratton/laravel/blob/master/laravel_authentication.PNG)
+![Laravel Authentication in one minute](https://github.com/mikestratton/laravel/blob/master/laravel_authentication.PNG)  
 
 Documentation: https://laravel.com/docs/5.2/authentication  
 
@@ -451,25 +450,25 @@ protected $fillable = [ 'name', 'email', 'password',];
         return false;  
     }  
 13. In phpMyAdmin,  
-update `laravel_middleware`.`users` SET `role_id` = '1' WHERE `users`.`id` = 1;
+update `laravel_middleware`.`users` SET `role_id` = '1' WHERE `users`.`id` = 1;  
 14. In IsAdmin.php, add to public function handle:   
           $user = Auth::user();  
-          if(!$user->isAdmin()){
-            return redirect('/'); 
-        }  
+          if(!$user->isAdmin()){  
+            return redirect('/');  
+        }   
 15. php artisan make:controller AdminController  
 16. Add a route:  
 Route::get('/admin', 'AdminController$index');  
 17. In the AdminController.php file, add:  
-    public function __construct()  
-    {  
-        $this->middleware('IsAdmin');  
-    }  
-  
-    public function index(){  
-        return "you are an admin";  
+    public function __construct()   
+    {   
+        $this->middleware('IsAdmin');   
     }   
-Documentation: https://laravel.com/docs/5.2/middleware  
+  
+    public function index(){   
+        return "you are an admin";   
+    }    
+Documentation: https://laravel.com/docs/5.2/middleware   
 
 ## Laravel Sessions
 Example:  
@@ -488,9 +487,9 @@ Documentation: https://laravel.com/docs/5.2/session
 
 ## Laravel Sending Email/Api  
 Separate laravel project, located in the /mail directory.  
-Using MailGun API https://www.mailgun.com/  
+Using MailGun API https://www.mailgun.com/   
 ### MailGun Configuration
-1. Signup for an account at mailgun.com  
+1. Signup for an account at mailgun.com   
 2. In the .env file:   
 change: MAIL_DRIVER=smtp to MAIL_DRIVER=mailgun  
 add: MAILGUN_DOMAIN=your mailgun domain  
@@ -501,12 +500,12 @@ Delete: MAIL_USERNAME=null
 Delete: MAIL_PASSWORD=null  
 Delete: MAIL_ENCRYPTION=null  
 3. In mail.php, append:  
-'from' => ['address' => 'your-email@gmail.com', 'name' => 'Your Name'],
-4. The services.php  utilizes configurations set in the .env file.  
+'from' => ['address' => 'your-email@gmail.com', 'name' => 'Your Name'],  
+4. The services.php  utilizes configurations set in the .env file.   
 
 
 
-Documentation: https://laravel.com/docs/5.2/mail
+Documentation: https://laravel.com/docs/5.2/mail  
 
 
 
