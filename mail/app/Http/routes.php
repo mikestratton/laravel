@@ -20,12 +20,12 @@ Route::get('/', function(){
 Route::get('/email', function () {
 
     $data = [
-        'title'   => 'hello world, this is email',
-        'content' => 'This email message was sent from laravel'
+        'title'   => 'Shut up and buy me something!',
+        'content' => 'Mike your a bum if you don\'t do something for my birthday.'
     ];
 
     Mail::send('emails.test', $data, function($message){
 
-        $message->to('mike@mikestratton.net', 'Mike Stratton')->subject('Laravel Message');
+        $message->to('mike@mikestratton.net', 'Mike Stratton')->subject('Official mvc horse collaboration');
     });
 });
