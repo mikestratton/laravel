@@ -488,7 +488,9 @@ Documentation: https://laravel.com/docs/5.2/session
 ## Laravel Sending Email/Api  
 Separate laravel project, located in the /mail directory.  
 Using MailGun API https://www.mailgun.com/   
-### MailGun Configuration
+
+### MailGun Configuration  
+Laravel required package for sending email: composer require guzzlehttp/guzzle  
 1. Signup for an account at mailgun.com   
 2. In the .env file:   
 change: MAIL_DRIVER=smtp to MAIL_DRIVER=mailgun  
@@ -502,6 +504,9 @@ Delete: MAIL_ENCRYPTION=null
 3. In mail.php, append:  
 'from' => ['address' => 'your-email@gmail.com', 'name' => 'Your Name'],  
 4. The services.php  utilizes configurations set in the .env file.   
+
+
+
 
 
 
