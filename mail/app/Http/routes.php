@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
+use Illuminate\Support\Facades\Mail;
+
+Route::get('/', function(){
     return view('welcome');
+});
+
+Route::get('/email', function () {
+
+    $data = [
+        'title'   => 'hello world, this is email',
+        'content' => 'This email message was sent from laravel'
+    ];
+
+    Mail::send('emails.test', $data, function($message){
+
+        $message->to('mike@mikestratton.net', 'Mike Stratton')->subject('Laravel Message');
+    });
 });
