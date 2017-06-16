@@ -487,6 +487,24 @@ In HomeController.php, append public function index():
 Documentation: https://laravel.com/docs/5.2/session  
 
 ## Laravel Sending Email/Api  
+Separate laravel project, located in the /mail directory.  
+Using MailGun API https://www.mailgun.com/  
+### MailGun Configuration
+1. Signup for an account at mailgun.com  
+2. In the .env file:   
+change: MAIL_DRIVER=smtp to MAIL_DRIVER=mailgun  
+add: MAILGUN_DOMAIN=your mailgun domain  
+add: MAILGUN_SECRET=your mailgun secret api key  
+Delete: MAIL_HOST=mailtrap.io  
+Delete: MAIL_PORT=2525  
+Delete: MAIL_USERNAME=null  
+Delete: MAIL_PASSWORD=null  
+Delete: MAIL_ENCRYPTION=null  
+3. In mail.php, append:  
+'from' => ['address' => 'your-email@gmail.com', 'name' => 'Your Name'],
+4. The services.php  utilizes configurations set in the .env file.  
+
+
 
 Documentation: https://laravel.com/docs/5.2/mail
 
@@ -499,5 +517,6 @@ https://laravel.com/docs/5.2
 https://laravel.com/api/5.2/index.html   
 https://laravelcollective.com/docs/5.2/html  
 https://www.jetbrains.com/phpstorm/  
+https://www.mailgun.com/  
 https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel  
 
