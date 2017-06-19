@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Create Users</h1>
+    <h1>Create User</h1>
 
-    {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store']) !!}
+    {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store', 'files'=>true]) !!}
 
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}<br>
@@ -26,6 +26,11 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('file', 'Photo:') !!}<br>
+            {!! Form::file('file', null, ['class'=>'form->control']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::label('password', 'Password:') !!}<br>
             {!! Form::password('password',  ['class'=>'form->control']) !!}
         </div>
@@ -35,5 +40,7 @@
         </div>
 
      {!! Form::close() !!}
+
+    @include('includes.form_error')
 
 @stop
