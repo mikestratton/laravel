@@ -60,7 +60,7 @@ class AdminUsersController extends Controller
         User::create($input); // persist data to database
 
 
-//        return redirect(route('admin.users.index'));
+        return redirect(route('admin.users.index'));
 
     }
 
