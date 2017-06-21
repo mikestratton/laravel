@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
@@ -31,7 +32,9 @@ class AdminPostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::lists('name', 'id')->all();
+
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -60,12 +63,12 @@ class AdminPostsController extends Controller
         }
 
         $user->posts()->create($input); // persist data to database
-//
+
 //        Session::flash('created_user', '&nbsp; * The post has been created.');
-//
+
         return redirect(route('admin.posts.index'));
 
-//        return $request->all();
+
     }
 
     /**

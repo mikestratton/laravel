@@ -66,11 +66,14 @@ class AdminUsersController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
+
+
         User::create($input); // persist data to database
 
         Session::flash('created_user', '&nbsp; * The user has been created.');
 
         return redirect(route('admin.users.index'));
+
     }
 
     /**
