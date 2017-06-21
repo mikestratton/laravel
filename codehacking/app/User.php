@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @property mixed role
+ * @property mixed is_active
  */
 class User extends Authenticatable
 {
