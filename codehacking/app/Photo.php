@@ -14,4 +14,14 @@ class Photo extends Model
 
         return $this->uploads . $photo;
     }
+
+    public function posts(){
+
+        return $this->hasMany('App\Post');
+    }
+
+    public function category(){
+
+        return $this->hasMany('App\Category');
+    }
 }
