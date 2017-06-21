@@ -147,6 +147,6 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }
