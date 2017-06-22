@@ -512,7 +512,8 @@ Delete: MAIL_ENCRYPTION=null
 
 Documentation: https://laravel.com/docs/5.2/mail  
 
-
+### Laravel Helper Functions  
+Documentation: https://laravel.com/docs/5.2/helpers
 
     
     
