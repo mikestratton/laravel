@@ -5,7 +5,7 @@
     <hr>
     <div class="row">
         <div class="col-sm-2">
-            <img src="{{$user->photo ? $user->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-circle">
+            <img src="{{$user->photo ? $user->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive">
 
         </div>
 
