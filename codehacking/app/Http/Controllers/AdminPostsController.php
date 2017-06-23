@@ -136,7 +136,7 @@ class AdminPostsController extends Controller
 
         $post->delete();
 
-        Session::flash('deleted_user', '&nbsp; * The user has been deleted.');
+        Session::flash('deleted_post', '&nbsp; * The post has been deleted.');
 
         return redirect(route('admin.posts.index'));
     }
