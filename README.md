@@ -515,6 +515,24 @@ Documentation: https://laravel.com/docs/5.2/mail
 ### Laravel Helper Functions  
 Documentation: https://laravel.com/docs/5.2/helpers
 
+### Upload Plugin  
+DropzoneJS: http://www.dropzonejs.com/  
+ 
+In your blade template file:  
+a. add @yield('styles') right before closing body tag.   
+b. add @yield('scripts') right before closing body tag.  
+  
+In your view file:   
+a. Add below first section:  
+@section('styles')  
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/min/dropzone.min.css" class="css">  
+@stop  
+b. Add to end:  
+@section('scripts')  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/min/dropzone.min.js"></script>  
+@stop  
+
+
     
     
 ## References:    
