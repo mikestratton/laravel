@@ -532,6 +532,14 @@ b. Add to end:
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/min/dropzone.min.js"></script>  
 @stop  
 
+In your controller:  
+public function store(Request $request){  
+  $file = $request->file('file');  
+  $name = time() . $file->getClientOriginalName();  
+  $file->move('uploads', $name);
+  Photo::create(['file'=>$name]);
+}  
+
 
     
     
