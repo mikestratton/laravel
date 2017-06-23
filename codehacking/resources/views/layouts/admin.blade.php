@@ -25,7 +25,7 @@
     <![endif]-->
 
 
-
+@yield('styles')
 
 </head>
 
@@ -167,11 +167,11 @@
                         <a href="#"><i class="fa fa-picture-o fa-fw"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media"><i class="fa fa-globe fa-fw"></i> All Media</a>
+                                <a href="{{route('admin.media.index')}}"><i class="fa fa-globe fa-fw"></i> All Media</a>
                             </li>
 
                             <li>
-                                <a href=""><i class="fa fa-upload fa-fw"></i> Upload Media</a>
+                                <a href="{{route('admin.media.create')}}"><i class="fa fa-upload fa-fw"></i> Upload Media</a>
                             </li>
 
                         </ul>
@@ -347,7 +347,7 @@
 <script src="{{asset('js/libs.js')}}"></script>
 
 
-@yield('footer')
+@yield('scripts')
 
 
 
