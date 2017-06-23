@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h1>Posts</h1>
+    <h1><i class="fa fa-clipboard fa-fw"></i> Posts</h1>
 
     <table class="table">
         <thead>

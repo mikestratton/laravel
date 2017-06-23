@@ -21,7 +21,7 @@
     @endif
 
 
-<h1>Users</h1>
+<h1><i class="fa fa-user fa-fw"></i> Users</h1>
 
 <table class="table">
 <thead>
