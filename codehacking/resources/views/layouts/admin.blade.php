@@ -121,14 +121,14 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('admin.users.index')}}">All Users</a>
+                                <a href="{{route('admin.users.index')}}"><i class="fa fa-globe fa-fw"></i> All Users</a>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.users.create')}}">Create User</a>
+                                <a href="{{route('admin.users.create')}}"><i class="fa fa-plus fa-fw"></i> Create User</a>
                             </li>
 
                         </ul>
@@ -136,30 +136,14 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-clipboard fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('admin.posts.index')}}">All Posts</a>
+                                <a href="{{route('admin.posts.index')}}"><i class="fa fa-globe fa-fw"></i> All Posts</a>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.posts.create')}}">Create Post</a>
-                            </li>
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/categories">All Categories</a>
-                            </li>
-
-                            <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="{{route('admin.posts.create')}}"><i class="fa fa-plus fa-fw"></i> Create Post</a>
                             </li>
 
                         </ul>
@@ -168,14 +152,30 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-list fa-fw"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="/categories"><i class="fa fa-globe fa-fw"></i> All Categories</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="/categories/create"><i class="fa fa-plus fa-fw"></i> Create Category</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="fa fa-picture-o fa-fw"></i> Media<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/media"><i class="fa fa-globe fa-fw"></i> All Media</a>
+                            </li>
+
+                            <li>
+                                <a href=""><i class="fa fa-upload fa-fw"></i> Upload Media</a>
                             </li>
 
                         </ul>
@@ -192,10 +192,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="flot.html">Flot Charts</a>
+                                <a href="flot.html"><i class="fa fa-line-chart fa-fw"></i> Flot Charts</a>
                             </li>
                             <li>
-                                <a href="morris.html">Morris.js Charts</a>
+                                <a href="morris.html"><i class="fa fa-area-chart fa-fw"></i> Morris.js Charts</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -207,25 +207,25 @@
                         <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-pagelines fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">Panels and Wells</a>
+                                <a href="panels-wells.html"><i class="fa fa-columns fa-fw"></i> Panels and Wells</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Buttons</a>
+                                <a href="buttons.html"><i class="fa fa-toggle-on fa-fw"></i> Buttons</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Notifications</a>
+                                <a href="notifications.html"><i class="fa fa-flag fa-fw"></i> Notifications</a>
                             </li>
                             <li>
-                                <a href="typography.html">Typography</a>
+                                <a href="typography.html"><i class="fa fa-text-width fa-fw"></i> Typography</a>
                             </li>
                             <li>
-                                <a href="icons.html"> Icons</a>
+                                <a href="icons.html"><i class="fa fa-check-circle fa-fw"></i> Icons</a>
                             </li>
                             <li>
-                                <a href="grid.html">Grid</a>
+                                <a href="grid.html"><i class="fa fa-th fa-fw"></i> Grid</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

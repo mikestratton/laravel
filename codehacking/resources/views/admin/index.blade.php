@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h1>Admin</h1>
+    <h1><i class="fa fa-tachometer fa-fw"></i> Dashboard</h1>
 
 @stop

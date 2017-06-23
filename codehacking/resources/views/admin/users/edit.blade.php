@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Edit User</h1>
+    <h1>Edit User:<br><span class="bg-info">{{$user->name}}</span></h1>
     <hr>
     <div class="row">
         <div class="col-sm-2">
-            <img src="{{$user->photo ? $user->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-rounded">
+            <img src="{{$user->photo ? $user->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-circle">
 
         </div>
 
