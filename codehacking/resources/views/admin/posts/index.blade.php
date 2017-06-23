@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{$post->id}}</td>
                     <td><img class="img-circle" height="50" src="{{$post->photo ? $post->photo->file : '/images/seahorse.png'}}" alt=""></td>
-                    <td><a href="{{route('admin.posts.edit', $post->id)}}" alt="Edit Post">{{$post->user->name}}</a></td>
+                    <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->user->name}}</a></td>
                     <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{str_limit($post->body, 30)}}</td>
