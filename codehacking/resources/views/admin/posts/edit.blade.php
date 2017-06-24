@@ -7,7 +7,7 @@
     <div class="row">
 
         <div class="col-sm-2">
-            <img src="{{$post->photo ? $post->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-circle">
+            <img src="{{$post->photo ? $post->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-rounded">
         </div>
 
         <div class="col-sm-10">

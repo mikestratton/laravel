@@ -13,9 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -146,6 +144,10 @@
                                 <a href="{{route('admin.posts.create')}}"><i class="fa fa-plus fa-fw"></i> Create Post</a>
                             </li>
 
+                            <li>
+                                <a href="{{route('admin.comments.index')}}"><i class="fa fa-comments fa-fw"></i> All Comments</a>
+                            </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -177,10 +179,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
-
-
 
 
 
