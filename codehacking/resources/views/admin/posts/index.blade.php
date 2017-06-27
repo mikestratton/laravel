@@ -33,7 +33,7 @@
                     <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{str_limit($post->body, 30)}}</td>
-                    <td><a href="{{route('home.post', $post->id)}}">View Post</a></td>
+                    <td><a href="{{route('home.post', $post->slug)}}">View Post</a></td>
                     <td><a href="{{route('admin.posts.edit', $post->id)}}">Edit Post</a></td>
                     <td><a href="{{route('admin.comments.show', $post->id)}}">View Comments</a></td>
                     <td>{{$post->created_at->diffForHumans()}}</td>

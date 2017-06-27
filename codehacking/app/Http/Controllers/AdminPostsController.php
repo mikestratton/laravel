@@ -8,6 +8,7 @@ use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -142,8 +143,8 @@ class AdminPostsController extends Controller
         return redirect(route('admin.posts.index'));
     }
 
-    public function post($id){
-        $post = Post::findOrFail($id);
+    public function post($slug){
+        $post = Post::findBySlugOrFail($slug);
         $comments = $post->comments()->whereIsActive(1)->get();
         return view('post', compact('post','comments'));
     }
