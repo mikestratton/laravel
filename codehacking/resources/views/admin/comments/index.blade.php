@@ -9,17 +9,18 @@
         <h1><i class="fa fa-comments fa-fw"></i> Comments</h1>
 
         <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Author</th>
-            <th>Email</th>
-            <th>Body</th>
-            <th>View Post</th>
-            <th>Created</th>
-
-          </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Email</th>
+                    <th>Body</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
         <tbody>
 
         @foreach($comments as $comment)
@@ -29,8 +30,8 @@
                 <td>{{$comment->author}}</td>
                 <td>{{$comment->email}}</td>
                 <td>{{$comment->body}}</td>
-                <td><a href="{{route('home.post',$comment->post->id)}}">{{$comment->post->title}}</a></td>
-                <td>{{$comment->created_at}}</td>
+                <td><a href="{{route('home.post',$comment->post->id)}}">View Comments</a></td>
+                <td><a href="{{route('admin.comments.replies.show',$comment->id)}}">View Replies</a></td>
                 <td>
                     @if($comment->is_active == 1)
 
@@ -59,18 +60,14 @@
 
                     @endif
                 </td>
-
                 <td>
                     {!! Form::open(['method'=>'DELETE', 'action'=>['PostCommentsController@destroy', $comment->id]]) !!}
-
-
-
                     <div class="form-group">
                         {!! Form::submit('Delete', ['class'=>"btn btn-danger"]) !!}
                     </div>
-
                     {!! Form::close() !!}
                 </td>
+
             </tr>
 
         @endforeach

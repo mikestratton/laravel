@@ -92,56 +92,64 @@
 
                         @foreach($comment->replies as $reply)
 
+
+                            @if($reply->is_active == 1)
+
                                 <!-- Nested Comment -->
-                            <div class="media">
-                                <span class="pull-left">
-                                    <img height="32" class="media-object" src="{{$reply->photo}}" alt="">
-                                </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading">{{$reply->author}}
-                                        <small>{{$reply->created_at->diffForHumans()}}</small>
-                                    </h5>
-
-                                    <p>{{$reply->body}}
-
-                                    </p>
-
-                                </div>
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img height="32" class="media-object" src="{{$reply->photo}}" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">{{$reply->author}}
+                                            <small>{{$reply->created_at->diffForHumans()}}</small>
+                                        </h5>
+                                        <p>{{$reply->body}}</p>
+                                    </div>
 
 
-                            </div>
-                            <!-- End Nested Comment -->
+
+                                </div><!-- End Nested Comment -->
+
+
+                            @endif
 
                         @endforeach
 
                     @endif
 
-                    {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
+                    <div class="comment-reply-container">
+                        <button class="toggle-reply btn btn-primary pull-right">Reply</button>
 
-                    {!! Form::hidden('comment_id', $comment->id) !!}
-
-                    <div class="form-group">
-
-                        {!! Form::label('body', 'Reply:') !!}<br>
-                        {!! Form::textarea('body', null, ['class'=>'form->control', 'rows'=>1]) !!}
+                        <div class="comment-reply col-sm-6">
+                            {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
+                            {!! Form::hidden('comment_id', $comment->id) !!}
+                            <div class="form-group">
+                                {!! Form::label('body', 'Reply:') !!}<br>
+                                {!! Form::textarea('body', null, ['class'=>'form->control', 'rows'=>1]) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit('Submit', ['class'=>"btn btn-primary"]) !!}
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        {!! Form::submit('Submit', ['class'=>"btn btn-primary"]) !!}
-                    </div>
-
-                    {!! Form::close() !!}
 
                </div>
             </div>
 
         @endforeach
 
-
-
     @endif
 
+@stop
 
+@section('scripts')
+    <script>
+        $(".toggle-reply").click(function(){
 
+            $(this).next().slideToggle("slow");
+        });
+    </script>
 
 @stop
