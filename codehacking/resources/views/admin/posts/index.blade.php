@@ -45,5 +45,10 @@
         </tbody>
     </table>
 
+    <div class="row text-center">
+
+            {{$posts->render()}}
+
+    </div>
 
 @stop
