@@ -2,12 +2,14 @@
 
 @section('content')
 
+@include('includes.tinyeditor')
+
     <h1>Edit Post: <br><span class="bg-info">{{$post->title}}</span></h1>
 
     <div class="row">
 
         <div class="col-sm-2">
-            <img src="{{$post->photo ? $post->photo->file : '/images/seahorse.png'}}" alt="" class="img-responsive img-rounded">
+            <img src="{{$post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="" class="img-responsive img-rounded">
         </div>
 
         <div class="col-sm-10">

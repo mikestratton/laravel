@@ -1,6 +1,5 @@
 @extends('layouts.blog-post')
 
-
 @section('content')
 
 
@@ -25,12 +24,12 @@
     <hr>
 
     <!-- Preview Image -->
-    <img height="100" src="{{$post->photo ? $post->photo->file : '/images/seahorse.png'}}" alt="">
+    <img src="{{$post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="">
 
     <hr>
 
     <!-- Post Content -->
-    <p class="lead">{{$post->body}}</p>
+    <p class="lead">{!! $post->body !!}</p>
     <hr>
 
     @if(Session::has('comment_message'))

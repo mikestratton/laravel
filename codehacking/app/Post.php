@@ -52,4 +52,15 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
+    public function photoPlaceholder(){
+
+        return "http://placehold.it/700X200";
+    }
+
+    public function plainText($text) {
+        $taglessBody = strip_tags($text);
+        return $taglessBody;
+
+    }
+
 }
