@@ -15,22 +15,22 @@
 
             <div class="form-group">
                 {!! Form::label('title', 'Title:') !!}<br>
-                {!! Form::text('title', null, ['class'=>'form->control']) !!}
+                {!! Form::text('title', null, ['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('category_id', 'Category:') !!}<br>
-                {!! Form::select('category_id', $categories, null, ['class'=>'form->control']) !!}
+                {!! Form::select('category_id', $categories, null, ['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('photo_id', 'Photo:') !!}<br>
-                {!! Form::file('photo_id', null, ['class'=>'form->control']) !!}
+                {!! Form::file('photo_id', null, ['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('body', 'Description:') !!}<br>
-                {!! Form::textarea('body', null, ['class'=>'form->control']) !!}
+                {!! Form::textarea('body', null, ['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">
